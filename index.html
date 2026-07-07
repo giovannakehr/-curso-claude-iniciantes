@@ -9,8 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --black:#7C2D12;
-  --charcoal:#9A3412;
+  --black:#B35A3A;
+  --charcoal:#963F22;
   --gray-dark:#5C3A28;
   --gray-mid:#A47C63;
   --gray-light:#F0DCC9;
@@ -19,6 +19,7 @@
   --white:#FFFFFF;
   --accent:#7C3AED;
   --accent-dark:#5B21B6;
+  --claude-orange:#D97757;
   --sidebar-w:300px;
   --font-head:'Montserrat',sans-serif;
   --font-body:'Inter',sans-serif;
@@ -246,6 +247,7 @@ main a[download]{
   transition:background .15s ease;
 }
 main a[download]:hover{background:var(--accent-dark);}
+main a[download] *{color:inherit;}
 
 /* ---------- Código ---------- */
 pre{
@@ -376,8 +378,8 @@ blockquote.destaque{
   bottom:24px;
   width:60px;
   height:60px;
-  border-radius:50%;
-  background:#D97757;
+  border-radius:18px;
+  background:var(--claude-orange);
   color:#fff;
   display:flex;
   align-items:center;
@@ -390,7 +392,7 @@ blockquote.destaque{
 #claudeHelp:hover{
   transform:translateY(-3px);
   box-shadow:0 12px 28px rgba(0,0,0,.32);
-  background:#C2653F;
+  background:var(--charcoal);
 }
 #claudeHelp svg{width:28px;height:28px;}
 #claudeHelp-tooltip{
@@ -1577,7 +1579,20 @@ Para a maioria das tarefas pessoais e profissionais do cotidiano, o modelo inter
 
 <a id="claudeHelp" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Precisa de ajuda? Converse com o Claude">
 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-<path d="M12 2 L14 9 L21 9 L15.5 13.5 L17.5 21 L12 16.5 L6.5 21 L8.5 13.5 L3 9 L10 9 Z" fill="currentColor"/>
+<g fill="currentColor">
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(30 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(60 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(90 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(120 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(150 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(180 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(210 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(240 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(270 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(300 12 12)"/>
+<path d="M12 12 C12.7 8.8 13 5.2 12 2 C11 5.2 11.3 8.8 12 12 Z" transform="rotate(330 12 12)"/>
+</g>
 </svg>
 </a>
 <span id="claudeHelp-tooltip">Ficou com dúvida? Fale com o Claude</span>
