@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Completo de Claude para Iniciantes</title>
+</head>
+<body>
+
+<!--
+NOTA PARA O INSTRUTOR (visão geral do material):
+Este guia foi desenhado para um workshop de 1 a 2 dias com pessoas que usam Claude de forma
+muito básica ou nunca usaram. Ele funciona tanto como roteiro de aula ao vivo (siga a ordem
+dos módulos, use os exercícios como pausas práticas) quanto como apostila de referência
+(o aluno pode voltar a qualquer módulo depois do curso).
+Duração total estimada: entre 8h e 14h, dependendo do ritmo da turma e de quantos exercícios
+práticos forem feitos ao vivo. As estimativas de tempo de cada módulo estão indicadas no
+início de cada um.
+Sempre que este guia mencionar nomes de modelos, planos ou nomes de espaços do Claude,
+confirme na documentação oficial (docs.claude.com / support.claude.com) se a nomenclatura
+ainda é a mesma antes de apresentar em turma — esses detalhes mudam com frequência.
+-->
+
+<header>
+<h1>Guia Completo de Claude para Iniciantes</h1>
+<p>Workshop intensivo de 1–2 dias para uso pessoal e profissional no dia a dia</p>
+</header>
+
+<nav id="indice">
+<h2>Índice do curso</h2>
+<ol>
+<li><a href="#modulo-0">Módulo 0 — Mapa do Claude: espaços, modelos e planos</a>
+  <ol>
+  <li><a href="#m0-espacos">0.1 Visão geral dos espaços</a></li>
+  <li><a href="#m0-cowork">0.2 Cowork</a></li>
+  <li><a href="#m0-project">0.3 Project</a></li>
+  <li><a href="#m0-chat">0.4 Chat</a></li>
+  <li><a href="#m0-claude-code">0.5 Claude Code</a></li>
+  <li><a href="#m0-modelos">0.6 Modelos</a></li>
+  <li><a href="#m0-planos">0.7 O que cada plano permite</a></li>
+  <li><a href="#m0-exercicios">0.8 Exercícios práticos</a></li>
+  </ol>
+</li>
+<li><a href="#modulo-1">Módulo 1 — Boas-vindas, mentalidade de uso e primeiro contato com Artifacts</a></li>
+<li><a href="#modulo-2">Módulo 2 — Fundamentos de prompts</a></li>
+<li><a href="#modulo-3">Módulo 3 — Prompts mais poderosos: papéis, formatos, iteração e tom</a></li>
+<li><a href="#modulo-4">Módulo 4 — Skills: capacidades do modelo e Agent Skills</a></li>
+<li><a href="#modulo-5">Módulo 5 — Conectores e interação com arquivos e web</a></li>
+<li><a href="#modulo-6">Módulo 6 — Automação com Claude e Claude Code (e o que é "vibe coding")</a></li>
+<li><a href="#modulo-7">Módulo 7 — Agentes, workflows e uso estruturado</a></li>
+<li><a href="#modulo-8">Módulo 8 — Markdown (.md) como central de prompts</a></li>
+<li><a href="#modulo-9">Módulo 9 — Debug de prompt, validação e colaboração com a IA</a></li>
+<li><a href="#modulo-10">Módulo 10 — Ética, limites, viés e segurança</a></li>
+<li><a href="#modulo-11">Módulo 11 — Projeto final, cheat sheet, FAQ e glossário</a></li>
+</ol>
+</nav>
+
+<main>
+
+<section id="modulo-0">
+<h2>Módulo 0 — Mapa do Claude: espaços, modelos e planos</h2>
+<p><em>Tempo estimado: 60–75 minutos (teoria + exercícios).</em></p>
+
+<!--
+NOTA PARA O INSTRUTOR (conteúdo): antes de dar este módulo, confira na documentação oficial
+(docs.claude.com/docs, support.claude.com) se os nomes "Cowork", "Project", "Chat" e "Claude Code"
+e os limites entre eles continuam os mesmos — a Anthropic atualiza esse posicionamento com frequência.
+NOTA DE FACILITAÇÃO: comece este módulo com uma pergunta aberta — "quem aqui já usou o Claude e em
+qual desses formatos?" — isso ajuda a calibrar o ritmo do restante do dia. Deixe as telas de cada
+espaço abertas em um projetor e navegue ao vivo enquanto explica cada um.
+-->
+
+<h3 id="m0-espacos">0.1 Visão geral dos espaços</h3>
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Entender por que o Claude tem mais de um "lugar" para conversar com ele.</li>
+<li>Saber, na prática, qual espaço escolher para cada tipo de tarefa.</li>
+</ul>
+<p>O Claude não é só uma caixinha de chat. Dependendo do que você precisa fazer, existem formatos diferentes — cada um pensado para um tipo de trabalho. Isso pode parecer confuso no começo, mas a lógica é simples: <strong>quanto mais longa, repetitiva ou multietapas for a tarefa, mais vale a pena sair do chat simples e usar um espaço mais estruturado.</strong></p>
+<table>
+<tr><th>Espaço</th><th>Pensado para</th></tr>
+<tr><td>Chat</td><td>Perguntas pontuais, ideias rápidas, testar um prompt</td></tr>
+<tr><td>Project</td><td>Um tema, curso ou projeto contínuo, com contexto e arquivos fixos</td></tr>
+<tr><td>Cowork</td><td>Tarefas longas e multietapas, com entrega de arquivos (documentos, planilhas, relatórios)</td></tr>
+<tr><td>Claude Code</td><td>Automação e scripts, manipulação de dados, tarefas técnicas</td></tr>
+</table>
+<blockquote class="destaque">Dica: você não precisa escolher "o espaço certo" com perfeição logo de cara. Comece pelo Chat para qualquer dúvida e, quando perceber que está repetindo contexto ou fazendo a mesma tarefa em várias etapas, migre para um Project ou para o Cowork.</blockquote>
+
+<h3 id="m0-cowork">0.2 Cowork</h3>
+<p><strong>O que é:</strong> um modo de trabalho em que o Claude não só responde, mas planeja e executa tarefas em várias etapas de forma mais autônoma — com acesso a arquivos (e, em alguns casos, ao computador) para entregar um resultado final pronto, como um documento, uma planilha ou uma apresentação.</p>
+<p><strong>Quando usar:</strong></p>
+<ul>
+<li>Projetos contínuos que exigem vários passos até chegar ao resultado final;</li>
+<li>Criação de materiais longos (relatórios, planilhas com fórmulas, apresentações);</li>
+<li>Documentação de estudos e projetos pessoais;</li>
+<li>Trabalhar diretamente com arquivos e com um <code>.md</code> de referência (veja o Módulo 8).</li>
+</ul>
+<p><strong>Exemplo prático de prompt para o Cowork:</strong></p>
+<pre><code>Organize minha semana de trabalho a partir da lista de tarefas que vou colar abaixo.
+Crie uma planilha com colunas: Tarefa, Prioridade (Alta/Média/Baixa), Dia sugerido, Tempo estimado.
+Ordene por prioridade e me entregue o arquivo pronto.
+
+[colar lista de tarefas aqui]</code></pre>
+<p>Note que o Cowork pode ler e escrever arquivos localmente. Por isso, sempre revise o que está sendo compartilhado com ele — voltaremos a esse ponto no Módulo 10.</p>
+
+<h3 id="m0-project">0.3 Project</h3>
+<p><strong>O que é:</strong> um espaço que guarda instruções e arquivos fixos que se aplicam a todas as conversas dentro dele — ótimo para não ter que repetir contexto toda vez.</p>
+<p><strong>Quando usar:</strong></p>
+<ul>
+<li>Para acompanhar um curso (como este workshop);</li>
+<li>Para um projeto profissional ou pessoal de médio/longo prazo;</li>
+<li>Para um estudo contínuo (ex.: preparação para uma prova, aprendizado de um idioma).</li>
+</ul>
+<p><strong>Como estruturar um Project básico:</strong></p>
+<ol>
+<li>Defina o objetivo do projeto em uma frase;</li>
+<li>Anexe os arquivos principais (notas, planilhas, PDFs de referência);</li>
+<li>Escreva as instruções-padrão do projeto (o "jeito" como você quer que o Claude responda ali) — aproveite o mesmo conteúdo do seu <code>.md</code>, se já tiver um (Módulo 8).</li>
+</ol>
+<p><strong>Exemplo de instrução de Project:</strong></p>
+<pre><code>Este Project é sobre meus estudos de inglês para uma viagem em outubro.
+Sempre responda em português, mas traga os exemplos-chave também em inglês.
+Priorize vocabulário e frases úteis para viagem, aeroporto e hospedagem.
+Sempre que eu mandar um texto em inglês, corrija e explique o erro de forma simples.</code></pre>
+
+<h3 id="m0-chat">0.4 Chat</h3>
+<p><strong>O que é:</strong> a conversa simples, sem arquivos fixos nem instruções persistentes.</p>
+<p><strong>Quando usar:</strong></p>
+<ul>
+<li>Dúvidas pontuais do dia a dia;</li>
+<li>Ideias rápidas, brainstorm solto;</li>
+<li>Rascunhar e testar um prompt antes de "congelar" ele num <code>.md</code> ou num Project.</li>
+</ul>
+<blockquote class="destaque">Boa prática: se você perceber que está voltando ao mesmo Chat toda semana para a mesma finalidade (ex.: planejar a semana), isso é um sinal de que aquela tarefa merece um Project ou um <code>.md</code> próprio — não continue recriando contexto do zero.</blockquote>
+
+<h3 id="m0-claude-code">0.5 Claude Code</h3>
+<p><strong>O que é, para quem nunca programou:</strong> uma versão do Claude feita para lidar com código e automações — você descreve o que quer em português, e o Claude escreve, testa e ajusta o script para você. Não é preciso saber programar para começar a usar.</p>
+<p><strong>Para que serve, no dia a dia pessoal/profissional:</strong></p>
+<ul>
+<li>Gerar scripts simples (ex.: renomear um lote de arquivos);</li>
+<li>Manipular dados básicos (limpar uma planilha, juntar duas planilhas);</li>
+<li>Criar pequenas automações repetitivas.</li>
+</ul>
+<p><strong>Exemplos acessíveis que veremos com mais detalhe no Módulo 6:</strong></p>
+<ul>
+<li>Um script que renomeia fotos de férias por data;</li>
+<li>Um script que limpa linhas duplicadas de uma planilha de contatos;</li>
+<li>Um script que organiza anotações de pesquisa em pastas por tema.</li>
+</ul>
+<p>Vamos aprofundar o Claude Code no Módulo 6, incluindo o conceito de <strong>vibe coding</strong> — que tem um significado bem específico e vale a pena aprender direito (muita gente usa o termo errado).</p>
+
+<h3 id="m0-modelos">0.6 Modelos (Models)</h3>
+<p><strong>O que é um modelo, em linguagem simples:</strong> é o "cérebro" que está processando sua conversa. A Anthropic (empresa que cria o Claude) lança periodicamente novas famílias e versões de modelo — por isso, em vez de decorar um nome específico, é mais importante entender a <strong>lógica</strong> por trás dos nomes.</p>
+<p><strong>Lógica de nomenclatura:</strong></p>
+<ul>
+<li><strong>Família</strong>: geralmente há uma opção mais robusta (melhor para raciocínio complexo, tende a ser mais lenta), uma opção intermediária (o equilíbrio entre qualidade e velocidade, ótima para o dia a dia) e uma opção mais leve (mais rápida e econômica, ideal para tarefas simples em grande volume).</li>
+<li><strong>Geração/número de versão</strong>: indica quão recente é aquele modelo dentro da família. Números maiores = lançamentos mais novos.</li>
+</ul>
+<blockquote class="destaque">Importante: não vamos fixar aqui o nome exato do modelo "mais atual", porque isso muda com frequência e este material ficaria desatualizado rápido. Sempre confira a lista de modelos disponíveis diretamente nas configurações da sua conta Claude.</blockquote>
+<table>
+<tr><th>Tipo de tarefa</th><th>Tipo de modelo recomendado</th><th>Motivo</th></tr>
+<tr><td>Uso geral: estudo, escrita, planejamento, dúvidas do dia a dia</td><td>Modelo intermediário (a opção "padrão" da sua conta)</td><td>Melhor equilíbrio entre qualidade de resposta e velocidade</td></tr>
+<tr><td>Raciocínio complexo, análises longas, decisões com muitas variáveis</td><td>Modelo mais robusto da família</td><td>Mais capacidade de raciocínio, mesmo sendo um pouco mais lento</td></tr>
+<tr><td>Tarefas simples e repetitivas em grande volume (ex.: classificar 200 respostas de um formulário)</td><td>Modelo mais leve/rápido</td><td>Mais barato e mais rápido, sem perder qualidade nesse tipo de tarefa simples</td></tr>
+</table>
+<p><strong>Raciocínio estendido (modo "pensar mais"):</strong> alguns modelos permitem ativar um modo em que o Claude "pensa" mais antes de responder, mostrando (ou não) esse raciocínio. Vale a pena para problemas com várias etapas, contas, ou decisões que exigem comparar várias opções — não é necessário para perguntas simples do dia a dia.</p>
+
+<h3 id="m0-planos">0.7 O que cada plano permite</h3>
+<p>Antes de montar seus exercícios, vale entender que alguns recursos deste curso dependem do plano da sua conta. Confirme na documentação oficial o detalhamento mais atual, mas como referência geral:</p>
+<table>
+<tr><th>Recurso</th><th>Disponibilidade geral</th></tr>
+<tr><td>Chat, Project, modelo padrão</td><td>Disponível em praticamente todos os planos, incluindo o gratuito</td></tr>
+<tr><td>Cowork</td><td>Disponibilidade pode variar por plano — confirme na sua conta</td></tr>
+<tr><td>Conectores customizados (MCP)</td><td>Contas gratuitas costumam ter limite de quantidade; planos pagos têm mais</td></tr>
+<tr><td>Skills customizadas</td><td>Geralmente exigem plano pago com execução de código habilitada</td></tr>
+</table>
+<blockquote class="destaque">Dica para quem vai aplicar este curso em turma: peça para os alunos confirmarem o próprio plano antes do workshop, para não haver frustração no meio de um exercício por conta de uma limitação de plano.</blockquote>
+
+<h3 id="m0-exercicios">0.8 Exercícios práticos</h3>
+<ol>
+<li>Navegue pelos espaços disponíveis na sua conta (Chat, Project, Cowork, Claude Code) e identifique quais você já tem acesso.</li>
+<li>Crie um Project simples chamado "Meu workshop com Claude", com uma instrução curta sobre o que você quer aprender.</li>
+<li>Abra a lista de modelos disponíveis na sua conta e identifique qual é o modelo padrão (intermediário) e qual é o mais leve.</li>
+<li>Execute a mesma pergunta em dois modelos diferentes (ex.: "monte um plano de estudos de 4 semanas para aprender o básico de Excel") e compare: rapidez, profundidade e clareza da resposta.</li>
+</ol>
+<p><strong>Dicas e armadilhas comuns:</strong> o erro mais comum de iniciante aqui é tentar fazer tudo dentro do Chat simples, mesmo em projetos longos — isso obriga a repetir contexto toda hora e faz o aluno perder o valor real do Project e do Cowork.</p>
+</section>
+
+<section id="modulo-1">
+<h2>Módulo 1 — Boas-vindas, mentalidade de uso e primeiro contato com Artifacts</h2>
+<p><em>Tempo estimado: 45–60 minutos.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: este módulo funciona bem logo após uma pausa para café, porque é mais leve e
+gera bastante engajamento com a demonstração de Artifacts. Se possível, peça para um aluno sugerir
+um pedido em voz alta e gere o Artifact ao vivo, projetando a tela.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Entender o que o Claude é e não é, em termos simples.</li>
+<li>Diferenciar "usar de qualquer jeito" de "usar de forma estratégica".</li>
+<li>Ter um primeiro contato prático com Artifacts, para sair do módulo já motivado.</li>
+</ul>
+
+<h3>O que é o Claude, em termos simples</h3>
+<p>O Claude é um assistente de inteligência artificial com quem você conversa em linguagem natural — como se estivesse escrevendo para uma pessoa muito bem informada, disposta a ajudar, mas que não tem memória perfeita do que "deveria saber" sobre você a menos que você conte. Ele não pensa como um ser humano, não tem vontades próprias e não "sabe" fatos com 100% de certeza o tempo todo — por isso, saber usá-lo bem inclui saber quando confiar e quando checar (voltaremos a isso no Módulo 9).</p>
+
+<h3>Usar de qualquer jeito vs. usar de forma estratégica</h3>
+<table>
+<tr><th>Uso "de qualquer jeito"</th><th>Uso estratégico</th></tr>
+<tr><td>Pergunta curta, sem contexto, e aceita a primeira resposta</td><td>Dá contexto, pede o formato certo e itera até chegar no resultado</td></tr>
+<tr><td>Repete a mesma explicação toda conversa</td><td>Mantém um <code>.md</code> ou Project com contexto salvo</td></tr>
+<tr><td>Usa sempre o mesmo espaço para tudo</td><td>Escolhe Chat, Project, Cowork ou Claude Code conforme a tarefa</td></tr>
+<tr><td>Aceita a resposta sem checar nada</td><td>Sabe quando validar e pede fontes ou autoavaliação crítica</td></tr>
+</table>
+<p>O objetivo deste workshop é sair da coluna da esquerda e entrar na coluna da direita — no seu próprio ritmo, sem precisar virar um especialista técnico.</p>
+
+<h3>Boas práticas gerais de uso</h3>
+<ul>
+<li><strong>Ética:</strong> use o Claude para acelerar seu trabalho, não para se passar por outra pessoa ou enganar alguém.</li>
+<li><strong>Privacidade:</strong> evite colar dados sensíveis (senhas, números de documento, dados bancários) em qualquer prompt — vamos aprofundar isso no Módulo 10.</li>
+<li><strong>Senso crítico:</strong> trate respostas do Claude como um primeiro rascunho muito bom, não como verdade absoluta — especialmente em temas de saúde, direito e finanças.</li>
+</ul>
+
+<h3>Pensar junto com a IA</h3>
+<p>Uma mudança de mentalidade importante: em vez de tratar o Claude como um "oráculo" que só dá respostas prontas, trate-o como um parceiro de raciocínio.</p>
+<ul>
+<li><strong>Peça para o Claude fazer perguntas antes de responder</strong>, quando o pedido for complexo ou ambíguo;</li>
+<li><strong>Peça raciocínio passo a passo</strong>, para entender o "porquê" da resposta, não só o resultado final;</li>
+<li><strong>Use o Claude para brainstorm</strong>, pedindo várias alternativas antes de decidir qual seguir.</li>
+</ul>
+<p><strong>Exemplo de prompt que pede perguntas antes de responder:</strong></p>
+<pre><code>Quero montar um plano de estudos para aprender espanhol básico em 3 meses,
+dedicando cerca de 30 minutos por dia.
+Antes de montar o plano, me faça as perguntas que você precisar para
+personalizar isso para a minha rotina.</code></pre>
+
+<h3>Primeiro contato com Artifacts</h3>
+<p>Artifacts é o recurso que faz o Claude gerar, ao lado da conversa, um documento, uma pequena planilha, um trecho de código ou até um mini-aplicativo — algo que você pode ver, editar e reaproveitar, em vez de só ler um texto corrido no chat. Para quem está começando, é a forma mais rápida de sentir o valor prático do Claude.</p>
+<p><strong>Exemplo de prompt para gerar um primeiro Artifact:</strong></p>
+<pre><code>Crie uma lista de verificação (checklist) para eu organizar uma mudança de casa,
+dividida em: 2 meses antes, 1 mês antes, 1 semana antes e no dia da mudança.
+Apresente como um documento organizado que eu possa editar depois.</code></pre>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Peça ao Claude para gerar um Artifact simples e útil para sua rotina (ex.: uma checklist, um roteiro de estudos, uma tabela de orçamento pessoal).</li>
+<li>Refaça o mesmo pedido, mas primeiro peça para o Claude te fazer perguntas antes de responder. Compare os dois resultados.</li>
+</ol>
+<p><strong>Dicas e armadilhas comuns:</strong> não desanime se a primeira resposta não vier exatamente como você queria — isso é normal e esperado. O ajuste fino por meio de iteração (pedir para refazer, detalhar ou mudar o formato) é parte do processo, não um sinal de que "fez algo errado". Vamos aprofundar isso no Módulo 3.</p>
+</section>
+
+<section id="modulo-2">
+<h2>Módulo 2 — Fundamentos de prompts</h2>
+<p><em>Tempo estimado: 60 minutos.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: este é o módulo mais denso do dia 1. Divida em blocos curtos de teoria (10 min)
+seguidos de prática imediata (10-15 min) em vez de explicar tudo de uma vez. Circule pela sala
+durante os exercícios e colete 2-3 exemplos de prompts dos alunos para comentar em voz alta.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Entender o que é um prompt e quais são suas peças básicas.</li>
+<li>Aplicar uma estrutura simples e repetível para escrever prompts melhores.</li>
+<li>Reconhecer, na prática, a diferença entre um prompt fraco e um prompt forte.</li>
+</ul>
+
+<h3>O que é um prompt</h3>
+<p>Prompt é simplesmente o texto que você escreve para o Claude — o seu pedido. Parece óbvio, mas a qualidade desse texto é o fator que mais muda a qualidade da resposta que você recebe. Um prompt vago gera uma resposta genérica; um prompt bem construído gera uma resposta específica e útil.</p>
+
+<h3>Instrução, contexto e exemplo</h3>
+<ul>
+<li><strong>Instrução:</strong> o que você quer que o Claude faça (o verbo de ação: "resuma", "organize", "revise", "compare").</li>
+<li><strong>Contexto:</strong> as informações de fundo que o Claude precisa para fazer isso bem (quem é você, para que serve aquilo, restrições relevantes).</li>
+<li><strong>Exemplo:</strong> um modelo do resultado esperado, quando possível — mostrar é quase sempre mais eficaz do que só descrever.</li>
+</ul>
+
+<h3>Estrutura base de um bom prompt</h3>
+<p><strong>Objetivo + Contexto + Formato de resposta + Restrições</strong></p>
+<pre><code>[Objetivo] O que você quer que o Claude faça
+[Contexto] Informações de fundo relevantes
+[Formato] Como você quer receber a resposta (lista, tabela, texto corrido, tamanho)
+[Restrições] O que evitar, limites de tempo/espaço, tom desejado</code></pre>
+
+<h3>Boas vs. más práticas</h3>
+<table>
+<tr><th>Prompt fraco</th><th>Prompt forte</th></tr>
+<tr>
+<td><pre><code>Me ajuda a organizar meu dia</code></pre></td>
+<td><pre><code>Tenho essas tarefas hoje: [listar]. Trabalho das 9h às 18h, com 1h de almoço
+e uma reunião fixa às 14h. Organize essas tarefas em uma agenda por horário,
+priorizando o que é mais urgente pela manhã. Apresente em formato de tabela
+com colunas Horário e Tarefa.</code></pre></td>
+</tr>
+<tr>
+<td><pre><code>Escreve um email para meu chefe</code></pre></td>
+<td><pre><code>Escreva um e-mail profissional e direto para meu gestor, pedindo para adiar
+a entrega do relatório X em 2 dias por causa de um imprevisto pessoal.
+Tom cordial, sem parecer que estou dando desculpa fraca. Máximo de 100 palavras.</code></pre></td>
+</tr>
+</table>
+
+<h3>Exercícios práticos guiados</h3>
+<ol>
+<li><strong>Organizar um dia de trabalho:</strong> escreva um prompt completo (objetivo + contexto + formato + restrições) para o Claude montar sua agenda de hoje.</li>
+<li><strong>Criar uma lista de tarefas priorizada:</strong> peça uma lista de tarefas da sua semana, organizada por prioridade e com estimativa de tempo.</li>
+<li><strong>Revisar um e-mail:</strong> cole um e-mail que você já escreveu e peça revisão de tom e clareza, especificando o público (chefe, cliente, colega).</li>
+<li><strong>Resumir um texto:</strong> cole um texto de até 1 página e peça um resumo de 5 bullets, especificando o nível de detalhe.</li>
+</ol>
+
+<p><strong>Dicas e armadilhas comuns:</strong></p>
+<ul>
+<li>Armadilha: pedir tudo de uma vez, sem formato definido — a resposta tende a sair genérica. Solução: sempre diga como quer receber a resposta.</li>
+<li>Armadilha: não dar contexto suficiente sobre você mesmo (rotina, restrições, nível de conhecimento). Solução: pense no prompt como se estivesse explicando para alguém competente, mas que acabou de te conhecer.</li>
+<li>Armadilha: aceitar a primeira resposta mesmo quando ela não atende. Solução: iterar é normal — veja o Módulo 3.</li>
+</ul>
+</section>
+
+<section id="modulo-3">
+<h2>Módulo 3 — Prompts mais poderosos: papéis, formatos, iteração e tom</h2>
+<p><em>Tempo estimado: 75–90 minutos.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: reserve tempo extra aqui — este módulo costuma gerar as melhores descobertas
+"aha" da turma, especialmente a parte de tom/personalidade. Se o tempo apertar, priorize os
+patterns Chain-of-thought e Critic & reviser, que são os mais aplicáveis ao dia a dia pessoal.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Fazer o Claude assumir um "papel" específico para respostas mais direcionadas.</li>
+<li>Pedir formatos de saída específicos e quebrar tarefas grandes em subpassos.</li>
+<li>Conhecer 4 prompt patterns essenciais e quando usar cada um.</li>
+<li>Aprender a definir tom e personalidade nas respostas do Claude via prompt.</li>
+</ul>
+
+<h3>Fazendo o Claude assumir um papel</h3>
+<p>Pedir que o Claude "atue como" um determinado profissional ajuda a calibrar o vocabulário, a profundidade e a perspectiva da resposta.</p>
+<pre><code>Atue como um consultor financeiro pessoal, especializado em ajudar pessoas
+com renda variável a montar uma reserva de emergência. Analise minha situação abaixo
+e sugira um plano de 6 meses.</code></pre>
+
+<h3>Quebrando tarefas grandes em subpassos</h3>
+<pre><code>Quero planejar uma festa de aniversário para 20 pessoas em 3 semanas.
+Faça isso em etapas:
+1. Liste as decisões que preciso tomar primeiro (data, local, orçamento).
+2. Para cada decisão, sugira 2-3 opções com prós e contras.
+3. Só depois disso, monte um cronograma semana a semana.</code></pre>
+
+<h3>Pedindo formatos específicos de saída</h3>
+<p>Seja explícito: tabela, checklist, plano de ação numerado, bullets curtos, e-mail pronto para copiar. Isso muda completamente a utilidade prática da resposta.</p>
+
+<h3>Iterando a partir das respostas</h3>
+<p>Você não precisa acertar tudo no primeiro prompt. Trate a primeira resposta como um rascunho e refine com pedidos diretos:</p>
+<pre><code>Boa base. Agora deixe mais direto, corte pela metade o tamanho e troque
+o tom para mais informal, como se estivesse falando com um amigo.</code></pre>
+
+<h3>Prompt patterns essenciais</h3>
+
+<h4>1. Chain-of-thought (raciocínio em etapas)</h4>
+<p><strong>O que é:</strong> pedir para o Claude mostrar o raciocínio passo a passo antes de chegar na resposta final.</p>
+<p><strong>Quando usar:</strong> decisões com várias variáveis, problemas de lógica, contas, comparações complexas.</p>
+<pre><code>Estou decidindo entre dois empregos. Pense passo a passo sobre os critérios
+mais importantes (salário, crescimento, estabilidade, qualidade de vida) antes
+de me dar uma recomendação final. Mostre seu raciocínio.</code></pre>
+
+<h4>2. Critic & reviser (o modelo critica e depois melhora)</h4>
+<p><strong>O que é:</strong> pedir para o Claude primeiro apontar os pontos fracos de algo, e só depois reescrever com as melhorias.</p>
+<p><strong>Quando usar:</strong> revisão de textos, planos, ideias — qualquer coisa que se beneficie de uma segunda camada de olhar crítico.</p>
+<pre><code>Aqui está meu resumo profissional para o LinkedIn: [colar texto]
+Primeiro, aponte os 3 principais pontos fracos desse texto.
+Depois, reescreva incorporando essas melhorias.</code></pre>
+
+<h4>3. Teacher & student (o modelo ensina e depois testa)</h4>
+<p><strong>O que é:</strong> pedir para o Claude explicar um conceito e, na sequência, testar seu entendimento com perguntas.</p>
+<p><strong>Quando usar:</strong> estudo, preparação para provas ou entrevistas, aprender um assunto novo.</p>
+<pre><code>Me explique o conceito de juros compostos como se eu nunca tivesse ouvido falar
+sobre isso. Depois, me faça 3 perguntas para testar se eu entendi.</code></pre>
+
+<h4>4. Planner & executor (o modelo planeja antes de executar)</h4>
+<p><strong>O que é:</strong> pedir para o Claude montar um plano primeiro, validar com você, e só depois executar a tarefa completa.</p>
+<p><strong>Quando usar:</strong> tarefas grandes, onde você quer aprovar a direção antes de gastar tempo no resultado final.</p>
+<pre><code>Quero criar um roteiro de estudos de 8 semanas para a certificação X.
+Primeiro me mostre apenas o esqueleto (temas por semana), sem detalhar ainda.
+Vou revisar e só depois te peço para detalhar cada semana.</code></pre>
+
+<h3>Tom e personalidade do prompt</h3>
+<p>Além do conteúdo, você pode definir o <strong>tom</strong>, o <strong>nível de detalhe</strong> e a <strong>postura</strong> que o Claude deve assumir — isso muda bastante a experiência da conversa e a utilidade prática da resposta para o seu contexto.</p>
+<ul>
+<li><strong>Tom:</strong> formal, amigável, direto, motivador...</li>
+<li><strong>Nível de detalhe:</strong> resposta curta e objetiva vs. explicação completa e aprofundada.</li>
+<li><strong>Postura:</strong> crítico, encorajador, professor paciente, consultor direto...</li>
+</ul>
+<p><strong>Exemplos de prompts com tom/personalidade definidos:</strong></p>
+<pre><code>Prompt com tom de coach:
+Aja como um coach de produtividade direto e motivador. Quando eu descrever
+minhas tarefas da semana, não apenas organize — me desafie a eliminar o que
+não é essencial e me questione se estou sendo realista com os prazos.
+
+Prompt com tom de professor exigente:
+Aja como um professor de redação rigoroso. Ao revisar meus textos, seja direto
+sobre os problemas, sem suavizar, mas sempre explique o porquê de cada correção.
+
+Prompt com tom de amigo pragmático:
+Me responda como um amigo direto e sem rodeios seria, sem formalidade excessiva,
+focado em me ajudar a decidir rápido em vez de listar mil opções.</code></pre>
+<p><strong>Diferença na prática:</strong> peça a mesma tarefa (ex.: "avalie meu plano de negócio") sem nenhuma instrução de tom, e depois peça de novo com uma das personas acima. A estrutura da resposta muda pouco, mas o tom, o nível de dureza nas críticas e a forma de apresentar as informações mudam bastante — vale demonstrar isso ao vivo na turma.</p>
+
+<blockquote class="destaque">
+Atenção a um termo que causa confusão: você vai ouvir por aí a expressão <strong>"vibe coding"</strong>.
+Ela NÃO significa "definir o tom de um prompt" (o que acabamos de fazer aqui). Vibe coding é um
+conceito específico sobre gerar código/programas descrevendo a intenção em linguagem natural para
+a IA — vamos ver isso com o significado correto no Módulo 6, quando falarmos de Claude Code.
+</blockquote>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Escolha uma tarefa do seu dia a dia e escreva 3 versões do mesmo prompt: uma sem papel definido, uma com "atue como X", e uma com tom/personalidade específicos. Compare os 3 resultados.</li>
+<li>Aplique o pattern Critic & reviser em um texto seu (e-mail, mensagem, resumo).</li>
+<li>Aplique o pattern Planner & executor em uma tarefa de planejamento pessoal.</li>
+</ol>
+
+<p><strong>Dicas e armadilhas comuns:</strong> definir um papel ou tom não faz o Claude "inventar" fatos que não existem — ele continua sujeito aos mesmos limites de precisão. Papel e tom mudam a forma da resposta, não a garantia de exatidão do conteúdo.</p>
+</section>
+
+<section id="modulo-4">
+<h2>Módulo 4 — Skills: capacidades do modelo e Agent Skills</h2>
+<p><em>Tempo estimado: 45 minutos.</em></p>
+
+<!--
+NOTA PARA O INSTRUTOR (conteúdo): este módulo tem duas partes que costumam ser confundidas —
+"skill" como capacidade genérica do modelo e "Skill" como recurso de produto (Agent Skills).
+Deixe essa diferença bem explícita na fala, reforçando verbalmente quando estiver falando de cada uma.
+NOTA DE FACILITAÇÃO: a demonstração mais forte deste módulo é pedir para o Claude criar uma planilha
+ou um documento Word na frente da turma e comentar "reparem que uma Skill foi ativada nos bastidores
+para isso — vocês não precisaram fazer nada a mais".
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Entender as capacidades gerais do modelo (o que ele sabe fazer bem).</li>
+<li>Entender o que são as Agent Skills — um recurso real do Claude — e como elas são ativadas.</li>
+<li>Saber pedir explicitamente por essas capacidades no prompt.</li>
+</ul>
+
+<h3>Parte 1 — Capacidades gerais do modelo</h3>
+<p>Independentemente de qualquer recurso específico, o Claude tem um conjunto de capacidades que você pode acionar simplesmente pedindo:</p>
+<ul>
+<li><strong>Análise de texto:</strong> encontrar padrões, inconsistências ou pontos-chave em um texto;</li>
+<li><strong>Síntese:</strong> juntar várias informações em um resumo coerente;</li>
+<li><strong>Reescrita:</strong> mudar tom, tamanho ou clareza de um texto;</li>
+<li><strong>Raciocínio passo a passo:</strong> resolver problemas mostrando o caminho até a resposta;</li>
+<li><strong>Verificação de consistência:</strong> checar se um argumento ou plano tem contradições internas;</li>
+<li><strong>Criatividade:</strong> gerar ideias, variações e alternativas.</li>
+</ul>
+<p><strong>Exemplos práticos por capacidade:</strong></p>
+<pre><code>Estudo e memorização (síntese + raciocínio):
+Aqui estão minhas anotações de aula sobre o sistema circulatório: [colar texto]
+Resuma em um mapa de conceitos com as relações entre os termos principais.
+
+Revisão de escrita (reescrita + verificação de consistência):
+Revise este parágrafo do meu TCC, apontando se há alguma contradição entre
+os argumentos, e reescreva de forma mais fluida sem mudar o sentido.
+
+Brainstorming criativo (criatividade):
+Preciso de 10 ideias de nomes para meu podcast sobre finanças pessoais para
+jovens. Misture nomes sérios e nomes mais descontraídos.
+
+Análise lógica de ideias (raciocínio passo a passo):
+Analise passo a passo se este plano de negócio faz sentido financeiramente,
+considerando os números que vou colar abaixo.</code></pre>
+
+<h3>Parte 2 — Agent Skills: o recurso real de Skills do Claude</h3>
+<p>Além das capacidades gerais acima, o Claude tem um recurso de produto chamado <strong>Skills</strong>: pacotes de instruções e, às vezes, scripts prontos, que o Claude carrega automaticamente quando percebe que são relevantes para o seu pedido.</p>
+<p><strong>Skills prontas (já vêm ativas):</strong> a Anthropic já disponibiliza Skills prontas para tarefas comuns de documento — por exemplo, ao pedir para o Claude criar uma planilha, um documento Word, uma apresentação ou trabalhar com um PDF, ele aciona a Skill correspondente nos bastidores, sem que você precise fazer nada além do pedido normal.</p>
+<pre><code>Crie uma planilha com meu controle de gastos mensais, com colunas Data,
+Categoria, Valor e Forma de pagamento, e uma aba de resumo por categoria.</code></pre>
+<p>Ao pedir isso, a Skill de planilhas é quem garante que o arquivo final seja um Excel de verdade, com fórmulas funcionando — não só uma tabela em texto.</p>
+<p><strong>Skills personalizadas:</strong> em planos pagos com execução de código habilitada, também é possível instalar ou criar Skills personalizadas para necessidades específicas e repetitivas — algo mais avançado, mas bom de saber que existe caso o aluno queira aprofundar depois do curso.</p>
+
+<h3>Como "ativar" skills via prompt</h3>
+<ul>
+<li>Pedindo raciocínio estruturado ("explique passo a passo", "compare ponto a ponto");</li>
+<li>Pedindo para o Claude atuar como especialista em determinada área;</li>
+<li>Pedindo revisão crítica explícita ("aponte falhas antes de aprovar");</li>
+<li>Pedindo o tipo de arquivo final desejado (planilha, documento, apresentação, PDF) — isso já aciona a Skill de produto correspondente.</li>
+</ul>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Peça ao Claude para analisar um texto seu (e-mail, redação, post) usando pelo menos duas capacidades da Parte 1 no mesmo prompt (ex.: síntese + verificação de consistência).</li>
+<li>Peça um arquivo de um tipo específico (planilha, documento ou apresentação) sobre um tema pessoal seu e observe o resultado entregue.</li>
+</ol>
+
+<p><strong>Dicas e armadilhas comuns:</strong> não confunda "pedir uma skill" com "digitar um comando mágico" — não existe um comando fixo para ativar uma Skill; ela é acionada automaticamente pelo Claude quando o seu pedido indica que faz sentido usá-la (por exemplo, pedir um arquivo Excel).</p>
+</section>
+
+<section id="modulo-5">
+<h2>Módulo 5 — Conectores e interação com arquivos e web</h2>
+<p><em>Tempo estimado: 60 minutos.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: peça para cada aluno trazer, se possível, um PDF ou planilha real do dia a dia
+dele (extrato, apostila, lista de contatos) para praticar com um documento que realmente importa
+para ele — o engajamento é muito maior do que com arquivos de exemplo genéricos.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Entender o que são conectores e como eles ampliam o que o Claude consegue fazer.</li>
+<li>Saber enviar documentos e pedir resumos, análises e extrações de forma eficaz.</li>
+<li>Conhecer boas práticas para trabalhar com arquivos grandes.</li>
+</ul>
+
+<h3>O que são conectores</h3>
+<p>Conectores são formas de o Claude acessar informações e ferramentas além da conversa em texto: seus arquivos (PDF, planilhas, documentos), a web, e — em versões mais avançadas — outros aplicativos e serviços que você usa no dia a dia (como e-mail, calendário ou armazenamento de arquivos), por meio de um padrão técnico chamado <strong>MCP</strong>. Para o uso pessoal deste curso, o mais relevante é a conexão com arquivos e, quando disponível na sua conta, com a web.</p>
+<table>
+<tr><th>Tipo de conector</th><th>Uso típico no dia a dia</th></tr>
+<tr><td>Arquivos (upload direto)</td><td>Enviar um PDF, planilha ou documento para análise ou resumo</td></tr>
+<tr><td>Web</td><td>Buscar informações atuais, quando disponível na sua conta/plano</td></tr>
+<tr><td>Planilhas</td><td>Analisar dados, montar tabelas, cruzar informações</td></tr>
+<tr><td>Conectores customizados (MCP)</td><td>Ligar o Claude a outras ferramentas específicas — tema mais avançado, fora do escopo deste workshop introdutório</td></tr>
+</table>
+
+<h3>Como enviar documentos e pedir análises</h3>
+<pre><code>Analise o PDF anexado (contrato de aluguel) e me diga, em bullets simples:
+1. Qual o valor do aluguel e o que está incluso;
+2. Prazo de vigência e regras de renovação;
+3. Qualquer cláusula que pareça incomum ou que eu deva prestar atenção.</code></pre>
+<pre><code>Aqui está minha planilha de gastos do último trimestre.
+Compare os 3 meses e me diga em qual categoria eu mais extrapolei o
+orçamento e se há alguma tendência de aumento.</code></pre>
+
+<h3>Boas práticas com arquivos grandes</h3>
+<ul>
+<li><strong>Divida pedidos extensos em partes:</strong> em vez de "analise tudo", peça primeiro uma visão geral, depois aprofunde seção por seção.</li>
+<li><strong>Seja específico sobre o que extrair:</strong> "todas as datas mencionadas", "só os valores em reais", "somente as conclusões, sem o desenvolvimento".</li>
+<li><strong>Valide os resultados:</strong> para documentos importantes (contratos, extratos financeiros), confira manualmente os pontos mais críticos em vez de confiar cegamente na extração — voltaremos a isso no Módulo 9.</li>
+</ul>
+
+<h3>Exemplos de uso</h3>
+<pre><code>Analisar um PDF de estudo:
+Este é o capítulo 3 da minha apostila de contabilidade. Resuma os conceitos
+principais em uma lista, com um exemplo prático para cada um.
+
+Extrair dados de uma planilha simples:
+Nesta planilha de contatos, identifique linhas duplicadas ou com e-mail
+inválido, e me devolva uma versão limpa.
+
+Criar uma apresentação a partir de notas:
+A partir destas notas sobre meu projeto [colar notas], crie uma apresentação
+de 6 slides: problema, solução, público-alvo, diferenciais, próximos passos
+e um slide de contato.</code></pre>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Envie um PDF ou documento real seu e peça um resumo estruturado em bullets.</li>
+<li>Envie uma planilha simples e peça uma análise comparativa ou a limpeza de dados duplicados.</li>
+<li>Peça a criação de uma apresentação curta a partir de notas soltas suas.</li>
+</ol>
+
+<p><strong>Dicas e armadilhas comuns:</strong> ao trabalhar com documentos sensíveis (contratos, dados financeiros), sempre confira se você está confortável em compartilhar aquele conteúdo antes de enviar — trataremos isso com mais profundidade no Módulo 10.</p>
+</section>
+
+<section id="modulo-6">
+<h2>Módulo 6 — Automação com Claude e Claude Code (e o que é "vibe coding")</h2>
+<p><em>Tempo estimado: 90 minutos. Recomenda-se que este módulo abra o segundo dia do workshop, se o curso for de 2 dias.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: para a turma leiga, o maior obstáculo aqui não é técnico, é psicológico —
+muita gente trava por achar que "não é o tipo de pessoa que mexe com código". Reforce, antes de
+começar, que ninguém vai escrever uma linha de código manualmente neste módulo.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Identificar tarefas repetitivas do dia a dia que podem virar prompts fixos ou automações.</li>
+<li>Criar modelos de prompt reutilizáveis (prompt templates).</li>
+<li>Ter uma primeira experiência acessível com Claude Code.</li>
+<li>Entender corretamente o conceito de <strong>vibe coding</strong>.</li>
+</ul>
+
+<h3>Identificando tarefas repetitivas</h3>
+<p>Antes de automatizar qualquer coisa, vale mapear o que já se repete na sua rotina: respostas de e-mail parecidas, revisão de textos antes de enviar, planejamento semanal, preparação de reuniões, resumos de estudo. Qualquer tarefa que você faz "do mesmo jeito" mais de uma vez por semana é candidata a virar um prompt fixo.</p>
+
+<h3>Criando modelos de prompt fixos (templates)</h3>
+<pre><code>[MODELO — Revisão de e-mail antes de enviar]
+Revise o e-mail abaixo. Verifique: clareza, tom profissional e cordial,
+erros de português. Aponte se algo pode soar rude ou ambíguo.
+Devolva a versão revisada.
+
+E-mail: [colar aqui]</code></pre>
+<pre><code>[MODELO — Planejamento semanal]
+Com base nesta lista de tarefas e compromissos da semana [colar], monte um
+plano dia a dia, respeitando meu horário de trabalho (9h-18h) e deixando
+as tardes de sexta livres. Formato: tabela por dia.</code></pre>
+<p>Guarde esses modelos no seu <code>.md</code> pessoal (veremos isso em detalhe no Módulo 8) para não ter que reescrever do zero toda vez.</p>
+
+<h3>Casos de uso comuns</h3>
+<ul>
+<li>Responder e-mails mais rápido (com um template de tom/estrutura padrão);</li>
+<li>Rotinas de planejamento semanal;</li>
+<li>Revisão de textos antes de enviar;</li>
+<li>Criação de roteiros de reuniões;</li>
+<li>Apoio a estudos contínuos (resumos, questões, flashcards).</li>
+</ul>
+<pre><code>[MODELO — Roteiro de reunião]
+Preciso de uma pauta para uma reunião de 30 minutos sobre [tema].
+Participantes: [listar]. Objetivo da reunião: [descrever].
+Monte uma pauta com tempo estimado por item e um resumo do que decidir ao final.</code></pre>
+<pre><code>[MODELO — Flashcards de estudo]
+A partir deste resumo sobre [tema], crie 10 flashcards no formato
+Pergunta / Resposta, misturando nível fácil e nível difícil.</code></pre>
+
+<h3>Introdução ao Claude Code, de forma acessível</h3>
+<p>Como vimos no Módulo 0, o Claude Code permite descrever em português o que você quer automatizar, e o Claude escreve e executa o script para você. A regra de ouro aqui é: <strong>sempre teste, entenda e revise antes de rodar qualquer script</strong> — mesmo sendo simples.</p>
+<pre><code>Exemplo — organizar fotos por data:
+Tenho uma pasta com fotos de viagem cujos nomes de arquivo têm a data
+no formato AAAAMMDD. Crie um script que organize essas fotos em
+subpastas por mês (ex.: "2026-07"). Antes de rodar, me explique o
+que o script vai fazer, passo a passo.</code></pre>
+<pre><code>Exemplo — limpar uma planilha:
+Tenho uma planilha de contatos com linhas duplicadas e alguns e-mails
+mal formatados. Crie um script que identifique duplicatas e destaque
+e-mails inválidos, sem apagar nada automaticamente — só sinalizar.</code></pre>
+
+<h3>O que é, de fato, "vibe coding"</h3>
+<p>O termo <strong>vibe coding</strong> foi criado por Andrej Karpathy (uma referência conhecida na comunidade de inteligência artificial) em fevereiro de 2025, e ficou tão popular que virou palavra do ano de 2025 em um dicionário de referência da língua inglesa. Ele descreve uma forma de programar em que você <strong>descreve a intenção do que quer em linguagem natural, deixa a IA gerar o código, e vai ajustando por tentativa e iteração</strong> — em vez de escrever cada linha manualmente.</p>
+<p>Na prática, é exatamente o que fizemos nos dois exemplos acima: você não escreveu nenhuma linha de código, apenas descreveu o resultado que queria, e o Claude Code gerou o script.</p>
+<blockquote class="destaque">
+Ponto de atenção importante sobre vibe coding: a ideia original é "confiar no resultado e seguir em frente" — o que é ótimo para prototipagem rápida, mas arriscado quando o script mexe com dados importantes ou arquivos que você não pode perder. Por isso, mesmo fazendo vibe coding, mantenha sempre o hábito de pedir uma explicação do que o script faz antes de rodar, e testar primeiro em uma cópia dos seus dados.
+</blockquote>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Crie 2 prompt templates para tarefas que você repete toda semana e salve-os (vamos formalizar isso no <code>.md</code> do Módulo 8).</li>
+<li>No Claude Code, peça um script simples para uma tarefa pessoal real (organizar arquivos, limpar uma lista, converter um formato de dados). Peça para o Claude explicar o script antes de rodar.</li>
+<li>Rode o script em uma cópia de teste dos seus dados, nunca no arquivo original na primeira tentativa.</li>
+</ol>
+
+<p><strong>Dicas e armadilhas comuns:</strong> a armadilha mais comum aqui é rodar um script direto no arquivo original "porque parece simples". Crie o hábito de sempre testar em cópia primeiro — é uma boa prática, não desconfiança do Claude.</p>
+</section>
+
+<section id="modulo-7">
+<h2>Módulo 7 — Agentes, workflows e uso estruturado</h2>
+<p><em>Tempo estimado: 60 minutos.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: este módulo pode soar abstrato se ficar só na teoria. Priorize o tempo para a
+criação guiada de 1 agente simples ao vivo, com a turma toda participando da definição do prompt.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Entender, de forma simples, o que são agentes e workflows.</li>
+<li>Ver exemplos de agentes pessoais simples e reutilizáveis.</li>
+<li>Criar 1 a 2 agentes próprios durante o workshop.</li>
+</ul>
+
+<h3>O que é um agente, em linguagem simples</h3>
+<p>Um <strong>agente</strong> é, na prática, um "papel" ou "função" bem definida que você configura para o Claude assumir de forma consistente sempre que precisar — combinando um objetivo claro, instruções fixas e, às vezes, arquivos de referência. É diferente de um prompt avulso: o agente é pensado para ser reaproveitado várias vezes, sempre com o mesmo comportamento.</p>
+<p>Um <strong>workflow</strong> é a sequência de passos que esse agente (ou você, junto com o Claude) segue para chegar do pedido inicial até o resultado final — por exemplo: coletar informação → organizar → gerar rascunho → revisar → entregar.</p>
+<p>Um <strong>projeto estruturado</strong> (o Project que vimos no Módulo 0) é o "lar" onde esse agente e esse workflow moram, com os arquivos e instruções fixas que os sustentam.</p>
+
+<h3>Exemplos de agentes simples para uso pessoal</h3>
+<table>
+<tr><th>Agente</th><th>Função</th></tr>
+<tr><td>Agente pessoal de estudos</td><td>Explica conceitos, cria resumos e testa seu conhecimento com perguntas</td></tr>
+<tr><td>Agente de produção de conteúdo</td><td>Ajuda a criar posts, roteiros e legendas mantendo sempre o mesmo tom de voz</td></tr>
+<tr><td>Agente de organização de tarefas</td><td>Recebe suas tarefas soltas e devolve sempre no mesmo formato de plano priorizado</td></tr>
+</table>
+
+<h3>Passo a passo: criando um agente pessoal de estudos</h3>
+<ol>
+<li>Defina o objetivo: "me ajudar a estudar para a prova de [matéria]";</li>
+<li>Defina o comportamento fixo: como ele deve explicar, em que formato testar seu conhecimento;</li>
+<li>Salve isso como instrução de um Project (Módulo 0) ou como bloco fixo no seu <code>.md</code> (Módulo 8).</li>
+</ol>
+<pre><code>[AGENTE — Personal de estudos]
+Você é meu agente pessoal de estudos para [matéria/prova].
+Sempre que eu colar um conteúdo nesta conversa:
+1. Explique o conceito em linguagem simples, com um exemplo prático.
+2. Me faça 3 perguntas de verificação, sem me dar a resposta ainda.
+3. Só revele as respostas certas quando eu pedir.
+Mantenha um tom encorajador, mas exigente.</code></pre>
+
+<h3>Passo a passo: criando um agente de produção de conteúdo</h3>
+<pre><code>[AGENTE — Produção de conteúdo]
+Você é meu agente de criação de conteúdo para redes sociais sobre [tema].
+Meu tom de voz é: direto, com humor leve, sem parecer forçado.
+Sempre que eu pedir um post, entregue:
+1. Uma versão curta (para Instagram/LinkedIn);
+2. 3 sugestões de gancho (primeira frase) diferentes;
+3. Uma sugestão de imagem ou formato visual.</code></pre>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Escolha um dos três exemplos de agente acima (ou crie um próprio) e escreva as instruções completas dele.</li>
+<li>Teste esse agente com um caso real do seu dia a dia.</li>
+<li>Salve as instruções em um Project ou no seu <code>.md</code> pessoal para reutilizar depois do curso.</li>
+</ol>
+
+<p><strong>Dicas e armadilhas comuns:</strong> um erro comum é criar instruções de agente vagas demais (ex.: "seja um bom assistente de estudos") — quanto mais específico o comportamento esperado, mais consistente o agente se torna ao longo do tempo.</p>
+</section>
+
+<section id="modulo-8">
+<h2>Módulo 8 — Markdown (.md) como central de prompts</h2>
+<p><em>Tempo estimado: 60 minutos.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: este é um dos módulos com maior impacto de longo prazo no curso, mas pode
+parecer "só mais um arquivo de texto" se não for bem vendido. Abra com a demonstração antes/depois
+(sem .md vs. com .md) para deixar o valor óbvio antes de entrar na parte técnica de como criar um.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Entender o que é um arquivo Markdown (.md) e por que ele é ideal para uso com IA.</li>
+<li>Saber criar e manter um <code>.md</code> básico.</li>
+<li>Usar o <code>.md</code> como biblioteca de prompts, diário de aprendizagem e documentação de projetos.</li>
+</ul>
+
+<h3>O que é um arquivo Markdown</h3>
+<p>Markdown é um formato de texto simples que usa símbolos leves (como <code>#</code> para títulos e <code>*</code> para listas) para dar estrutura a um documento, sem precisar de um editor complexo como o Word. Ele pode ser aberto em qualquer bloco de notas, mas fica bem formatado quando lido por ferramentas que entendem Markdown — incluindo o próprio Claude.</p>
+
+<h3>Diferença entre .md e .docx/.txt</h3>
+<table>
+<tr><th>Formato</th><th>Características</th></tr>
+<tr><td>.txt</td><td>Texto puro, sem nenhuma estrutura (sem títulos, sem listas formatadas)</td></tr>
+<tr><td>.docx</td><td>Formatação visual rica, mas arquivo "pesado" e menos prático para colar em conversas</td></tr>
+<tr><td>.md</td><td>Leve, estruturado (títulos, listas, negrito, blocos de código), fácil de ler tanto por você quanto pelo Claude</td></tr>
+</table>
+
+<h3>Benefícios do Markdown com Claude</h3>
+<ul>
+<li><strong>Texto limpo:</strong> sem formatação escondida que confunde o modelo;</li>
+<li><strong>Fácil de versionar:</strong> dá para acompanhar mudanças ao longo do tempo, se quiser;</li>
+<li><strong>Fácil de ler pelo modelo:</strong> a estrutura de títulos e listas ajuda o Claude a entender rapidamente o contexto;</li>
+<li><strong>Ideal para biblioteca de prompts:</strong> você organiza por tema e reaproveita quando precisar.</li>
+</ul>
+
+<h3>Como criar um .md — passo a passo</h3>
+<ol>
+<li>Abra qualquer editor de texto simples (Bloco de Notas, TextEdit, VS Code, ou até um app de notas);</li>
+<li>Salve o arquivo com a extensão <code>.md</code> (ex.: <code>prompt_library.md</code>);</li>
+<li>Use convenções básicas de estrutura:
+  <ul>
+  <li><code># Título principal</code></li>
+  <li><code>## Subtítulo</code></li>
+  <li><code>- item de lista</code></li>
+  <li><code>**negrito**</code> e <code>*itálico*</code></li>
+  <li>Blocos de código com três crases (<code>```</code>) para colar exemplos de prompt sem perder a formatação.</li>
+  </ul>
+</li>
+</ol>
+
+<h3>Como usar o .md na prática</h3>
+<ul>
+<li><strong>Biblioteca pessoal de prompts</strong> (por tema): guarde os prompts que funcionaram bem, organizados por assunto;</li>
+<li><strong>Diário de aprendizagem:</strong> registre o que funcionou e o que não funcionou em suas conversas com o Claude;</li>
+<li><strong>Documentação de projetos:</strong> mantenha o histórico e o contexto de um projeto específico.</li>
+</ul>
+
+<h3>Exemplos de trechos de .md</h3>
+<p><strong>prompt_library.md</strong></p>
+<pre><code># Minha Biblioteca de Prompts
+
+## Estudo
+### Explicar e testar um conceito
+Me explique [conceito] como se eu nunca tivesse ouvido falar.
+Depois, me faça 3 perguntas para testar se eu entendi.
+
+## Trabalho
+### Revisão de e-mail
+Revise o e-mail abaixo: clareza, tom profissional e cordial, erros de português.
+E-mail: [colar aqui]</code></pre>
+
+<p><strong>projeto_pessoal_financas.md</strong></p>
+<pre><code># Projeto: Organização Financeira Pessoal
+
+## Objetivo
+Sair do vermelho em 6 meses e montar uma reserva de emergência.
+
+## Contexto fixo
+- Renda mensal: variável, entre R$ 4.000 e R$ 6.000
+- Já tenho: cartão de crédito com saldo devedor de R$ 3.200
+- Meta: reserva de 3 meses de custo de vida até dezembro
+
+## Prompts que funcionaram bem
+- "Analise meus gastos do mês e aponte 3 categorias para cortar"
+- "Monte um plano de quitação de dívida priorizando menor juros"</code></pre>
+
+<p><strong>diario_de_uso_claude.md</strong></p>
+<pre><code># Diário de Uso do Claude
+
+## 2026-07-01
+Funcionou bem: pedir para o Claude fazer perguntas antes de montar meu
+plano de estudos — o resultado ficou muito mais personalizado.
+
+## 2026-07-03
+Não funcionou: pedir um resumo sem dizer o tamanho — veio longo demais.
+Ajuste: sempre especificar "resumo de até 5 bullets".</code></pre>
+
+<h3>Comparação: com e sem .md</h3>
+<table>
+<tr><th>Sem .md</th><th>Com .md atualizado</th></tr>
+<tr><td>Cada conversa começa do zero, você reexplica seu contexto sempre</td><td>Você cola o contexto relevante do .md e a resposta já sai personalizada</td></tr>
+<tr><td>Prompts bons se perdem em conversas antigas</td><td>Prompts bons ficam salvos e prontos para reuso</td></tr>
+<tr><td>Você repete os mesmos erros de prompt</td><td>Você registra o que não funcionou e evita repetir</td></tr>
+</table>
+
+<h3>Dicas de rotina</h3>
+<ul>
+<li>Reserve 5 minutos por dia (ou pelo menos por semana) para atualizar seu <code>.md</code>;</li>
+<li>Marque com destaque os prompts que funcionaram muito bem;</li>
+<li>Limpe periodicamente o que ficou obsoleto — um <code>.md</code> desorganizado perde a utilidade.</li>
+</ul>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Crie seu primeiro <code>prompt_library.md</code> com pelo menos 3 prompts que você já usou neste workshop.</li>
+<li>Crie um <code>diario_de_uso_claude.md</code> e registre 1 acerto e 1 ajuste de hoje.</li>
+<li>Refaça uma tarefa do Módulo 2 primeiro sem consultar o .md, depois consultando — compare o tempo e a qualidade do resultado.</li>
+</ol>
+
+<p><strong>Dicas e armadilhas comuns:</strong> não tente criar um .md "perfeito" logo de cara — comece simples e vá enriquecendo. Um .md vivo e um pouco bagunçado é mais útil do que um .md perfeito que você nunca atualiza.</p>
+</section>
+
+<section id="modulo-9">
+<h2>Módulo 9 — Debug de prompt, validação e colaboração com a IA</h2>
+<p><em>Tempo estimado: 45 minutos.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: peça exemplos reais de "respostas ruins" que os alunos tiveram em conversas
+anteriores com o Claude (fora do curso) e faça o debug ao vivo, aplicando o checklist abaixo.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Saber diagnosticar por que uma resposta veio abaixo do esperado.</li>
+<li>Usar o próprio Claude para ajudar a depurar e melhorar o prompt.</li>
+<li>Aplicar validação crítica em respostas antes de usá-las.</li>
+</ul>
+
+<h3>Debug de prompt: o que fazer quando a resposta vem...</h3>
+<ul>
+<li><strong>Superficial:</strong> geralmente falta contexto ou uma instrução de profundidade ("aprofunde", "explique com exemplos").</li>
+<li><strong>Longa demais:</strong> falta uma restrição de tamanho/formato explícita.</li>
+<li><strong>Fora do foco:</strong> o objetivo do prompt provavelmente estava ambíguo ou misturando dois pedidos diferentes.</li>
+<li><strong>Com possíveis erros:</strong> avalie se o tema exige checagem externa (ver seção de validação abaixo).</li>
+</ul>
+
+<h3>Checklist de debug</h3>
+<ol>
+<li>O objetivo do prompt estava claro?</li>
+<li>Havia contexto suficiente sobre a sua situação?</li>
+<li>O formato de saída foi especificado?</li>
+<li>Havia uma limitação de escopo definida (tamanho, foco, o que não incluir)?</li>
+</ol>
+
+<h3>Pedindo ajuda ao próprio Claude para depurar</h3>
+<pre><code>Me diga por que sua resposta anterior pode estar incompleta ou não ter
+atendido totalmente ao que eu pedi.</code></pre>
+<pre><code>Reescreva meu prompt original para ficar mais claro e eficiente,
+mantendo minha intenção original: [colar prompt original]</code></pre>
+
+<h3>Validação de respostas</h3>
+<ul>
+<li><strong>Verificar fatos fora do Claude:</strong> para dados específicos, números, nomes, datas ou eventos recentes, faça uma checagem em fontes confiáveis antes de usar a informação de forma definitiva.</li>
+<li><strong>Pedir autoavaliação crítica ao modelo:</strong></li>
+</ul>
+<pre><code>Antes de eu usar essa resposta, aponte quais partes têm mais chance de
+estarem imprecisas ou desatualizadas, e o que eu deveria checar por conta própria.</code></pre>
+
+<h3>Usando o .md para registrar confiabilidade</h3>
+<p>No seu <code>diario_de_uso_claude.md</code> (Módulo 8), vale registrar:</p>
+<ul>
+<li>Respostas que se mostraram confiáveis e você já validou;</li>
+<li>Tipos de pergunta que sempre exigem checagem (ex.: "qualquer número financeiro específico", "prazos legais").</li>
+</ul>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Pegue uma resposta anterior do workshop que ficou "morna" e aplique o checklist de debug para identificar o motivo.</li>
+<li>Peça ao Claude para reescrever o prompt original de forma mais eficiente e compare o resultado.</li>
+<li>Escolha uma resposta recente e peça a autoavaliação crítica do próprio Claude sobre ela.</li>
+</ol>
+
+<p><strong>Dicas e armadilhas comuns:</strong> não confunda "resposta que não gostei" com "resposta errada" — às vezes o problema é só de formato ou tom, que se resolve com um ajuste rápido de prompt, sem precisar desconfiar do conteúdo.</p>
+</section>
+
+<section id="modulo-10">
+<h2>Módulo 10 — Ética, limites, viés e segurança</h2>
+<p><em>Tempo estimado: 40 minutos.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: este módulo funciona melhor em tom de conversa do que de aula expositiva.
+Pergunte à turma que tipo de dado sensível eles já colaram (ou pensaram em colar) em ferramentas
+de IA — isso costuma gerar uma discussão genuína e engajada.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Entender de forma simples o que é viés de treinamento e por que ele existe.</li>
+<li>Saber em quais decisões vale redobrar o cuidado.</li>
+<li>Proteger dados pessoais ao usar o Claude, inclusive em modos com acesso a arquivos e computador.</li>
+</ul>
+
+<h3>Viés de treinamento, em termos simples</h3>
+<p>O Claude aprendeu a partir de uma quantidade enorme de texto produzido por pessoas — e, como qualquer conteúdo produzido por pessoas, esse material carrega vieses e pontos de vista predominantes de determinadas épocas, culturas e grupos. Isso significa que a resposta do Claude não é neutra por padrão; ela reflete padrões do material com que foi treinado. Saber disso ajuda a manter o senso crítico, especialmente em temas sociais, políticos ou culturais sensíveis.</p>
+
+<h3>Risco em decisões sensíveis</h3>
+<blockquote class="destaque">
+<strong>Quando exigir checagem humana obrigatória:</strong> saúde (diagnósticos, tratamentos, dosagens), jurídico (contratos, prazos legais, direitos), financeiro (investimentos, dívidas, tributos) e qualquer dado factual recente (números, eventos, cotações). Nessas áreas, trate a resposta do Claude como ponto de partida para pesquisa — nunca como decisão final.
+</blockquote>
+
+<h3>Como formular perguntas com responsabilidade</h3>
+<ul>
+<li>Explicite quando o tema é sensível, para que o Claude calibre a resposta com mais cuidado;</li>
+<li>Peça múltiplas perspectivas em temas polêmicos, em vez de tratar a primeira resposta como definitiva;</li>
+<li>Desconfie de respostas muito confiantes em temas que você sabe que são incertos ou controversos.</li>
+</ul>
+
+<h3>Protegendo dados pessoais</h3>
+<p><strong>Que tipo de dado evitar colar em prompts:</strong></p>
+<ul>
+<li>Senhas, chaves de acesso e tokens;</li>
+<li>Números de documentos (CPF, RG, passaporte);</li>
+<li>Dados bancários completos (número de cartão, conta);</li>
+<li>Informações de saúde sensíveis de terceiros sem consentimento.</li>
+</ul>
+<p><strong>Boas práticas de anonimização:</strong> ao colar um documento real (ex.: um contrato ou extrato) para análise, considere substituir nomes, números de documento e valores muito específicos por marcadores genéricos quando esses dados não forem necessários para a análise pedida.</p>
+
+<h3>Segurança específica ao usar o Cowork</h3>
+<p>Como vimos no Módulo 0, o Cowork pode ler e escrever arquivos localmente e, em alguns casos, interagir mais diretamente com o seu computador. Isso é poderoso, mas pede atenção redobrada:</p>
+<ul>
+<li>Revise sempre quais pastas e arquivos você está disponibilizando para aquela sessão;</li>
+<li>Enquanto ainda estiver aprendendo, prefira um modo que peça sua aprovação antes de agir, em vez de deixar o Claude executar tudo automaticamente;</li>
+<li>Nunca cole senhas, dados bancários ou documentos de identidade em uma sessão, mesmo que pareça conveniente.</li>
+</ul>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Revise os prompts que você já escreveu hoje no workshop: algum deles continha um dado que não deveria ter sido compartilhado? O que você faria diferente?</li>
+<li>Escolha um tema sensível relevante para você (saúde, jurídico ou financeiro) e escreva um prompt que já deixe claro, de forma explícita, que a resposta precisa ser tratada como ponto de partida, não como decisão final.</li>
+</ol>
+
+<p><strong>Dicas e armadilhas comuns:</strong> cuidado com o excesso de confiança gerado por respostas bem escritas — um texto bem estruturado e confiante não é sinônimo de informação correta.</p>
+</section>
+
+<section id="modulo-11">
+<h2>Módulo 11 — Projeto final, cheat sheet, FAQ e glossário</h2>
+<p><em>Tempo estimado: 90–120 minutos (inclui tempo de trabalho individual no projeto final).</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: reserve a maior parte deste bloco para trabalho individual guiado, circulando
+pela sala para ajudar. Encerre com uma rodada rápida em que cada aluno compartilha 1 coisa que criou.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Consolidar o aprendizado do workshop em um projeto pessoal completo.</li>
+<li>Sair com materiais de referência para consulta contínua (cheat sheet, FAQ, glossário).</li>
+</ul>
+
+<h3>Projeto final (Capstone)</h3>
+<p>Cada aluno deve criar, até o fim do workshop:</p>
+<ol>
+<li>1 arquivo <code>.md</code> principal bem estruturado (biblioteca de prompts + diário de aprendizagem, começados no Módulo 8);</li>
+<li>1 rotina semanal com Claude (planejamento, revisão ou estudo — usando os templates do Módulo 6);</li>
+<li>1 agente/workflow simples para um objetivo pessoal (criado no Módulo 7).</li>
+</ol>
+
+<h3>Modelos de projeto final — escolha um caminho</h3>
+<table>
+<tr><th>Caminho</th><th>Foco</th><th>Entregáveis sugeridos</th></tr>
+<tr><td>Estudo</td><td>Aprender algo novo com apoio do Claude</td><td>Agente de estudos + <code>.md</code> com plano de estudos e flashcards</td></tr>
+<tr><td>Produção de conteúdo</td><td>Criar conteúdo consistente (posts, roteiros, textos)</td><td>Agente de conteúdo com tom de voz definido + <code>.md</code> com biblioteca de prompts de criação</td></tr>
+<tr><td>Produtividade/organização</td><td>Organizar rotina pessoal ou profissional</td><td>Agente de organização de tarefas + rotina semanal de planejamento + <code>.md</code> de acompanhamento</td></tr>
+</table>
+
+<h3>Cheat sheet — cola rápida de prompts</h3>
+<pre><code># Cola rápida de prompts
+
+## Estrutura base
+[Objetivo] + [Contexto] + [Formato] + [Restrições]
+
+## Pedir raciocínio passo a passo
+"Pense passo a passo antes de responder..."
+
+## Pedir crítica antes de melhorar
+"Primeiro aponte os pontos fracos, depois reescreva..."
+
+## Definir papel
+"Atue como [profissão/especialista] e..."
+
+## Definir tom
+"Responda com um tom [formal/direto/motivador/informal]..."
+
+## Pedir perguntas antes de executar
+"Antes de responder, me faça as perguntas que precisar..."
+
+## Debug de prompt
+"Me diga por que sua resposta anterior pode estar incompleta."
+"Reescreva meu prompt para ficar mais claro e eficiente: [prompt]"
+
+## Validação crítica
+"Aponte quais partes desta resposta têm mais chance de estarem
+imprecisas, e o que eu deveria checar por conta própria."</code></pre>
+
+<h3>FAQ para iniciantes</h3>
+<p><strong>O que faço quando o Claude "inventa" algo?</strong><br>
+Isso acontece quando o modelo gera uma informação que soa plausível, mas não é factualmente correta. Peça fontes ou uma autoavaliação crítica (Módulo 9), e sempre valide dados críticos fora do Claude.</p>
+<p><strong>Por que ele não entendeu meu pedido?</strong><br>
+Na maioria das vezes, o prompt estava ambíguo, misturava dois pedidos diferentes, ou faltava contexto. Use o checklist de debug do Módulo 9.</p>
+<p><strong>Como salvar e organizar meus melhores prompts?</strong><br>
+Use seu <code>.md</code> pessoal (Módulo 8), organizado por tema, com uma seção específica para os prompts que já provaram funcionar bem.</p>
+<p><strong>Preciso saber programar para usar o Claude Code?</strong><br>
+Não. Você descreve o que quer em português, revisa a explicação do que o script faz, e testa antes de rodar em dados reais (Módulo 6).</p>
+<p><strong>Qual modelo eu devo usar no dia a dia?</strong><br>
+Para a maioria das tarefas pessoais e profissionais do cotidiano, o modelo intermediário/padrão da sua conta é suficiente. Reserve o modelo mais robusto para tarefas de raciocínio complexo (Módulo 0).</p>
+
+<h3>Glossário</h3>
+<table>
+<tr><th>Termo</th><th>Significado simples</th></tr>
+<tr><td>Prompt</td><td>O texto que você escreve pedindo algo ao Claude</td></tr>
+<tr><td>Token</td><td>Pequeno pedaço de texto (parte de uma palavra) que o modelo processa; é a "unidade" usada para medir o quanto de texto cabe em uma conversa</td></tr>
+<tr><td>Contexto / context window</td><td>A quantidade de texto que o Claude consegue "ter em mente" ao mesmo tempo numa conversa</td></tr>
+<tr><td>Modelo</td><td>O "cérebro" que processa e gera a resposta — existem diferentes famílias e versões</td></tr>
+<tr><td>Agente</td><td>Um papel/função configurado para o Claude assumir de forma consistente e reutilizável</td></tr>
+<tr><td>MCP</td><td>Padrão técnico que permite ao Claude se conectar a outras ferramentas e fontes de dados externas</td></tr>
+<tr><td>Conector</td><td>A conexão em si entre o Claude e uma fonte externa (arquivo, web, outro aplicativo)</td></tr>
+<tr><td>Skill (Agent Skill)</td><td>Pacote de instruções que o Claude carrega automaticamente para tarefas específicas, como criar planilhas ou documentos</td></tr>
+<tr><td>Artifact</td><td>Documento, planilha, código ou mini-aplicativo gerado pelo Claude ao lado da conversa, editável e reaproveitável</td></tr>
+<tr><td>Vibe coding</td><td>Programar descrevendo a intenção em linguagem natural para a IA gerar o código, ajustando por iteração</td></tr>
+</table>
+
+<h3>Nota sobre atualização de versões</h3>
+<p>Recursos, modelos e espaços do Claude podem mudar com o tempo — a Anthropic atualiza esses itens com frequência. Revise periodicamente seus prompts e seu <code>.md</code>, e, ao notar que algo citado neste material mudou de nome ou de comportamento, atualize suas anotações. O hábito de revisão é mais importante do que decorar qualquer detalhe específico deste guia.</p>
+
+<h3>Exercício final</h3>
+<ol>
+<li>Finalize seu projeto capstone escolhendo um dos três caminhos sugeridos.</li>
+<li>Revise seu <code>.md</code> principal e garanta que ele tenha pelo menos: biblioteca de prompts, 1 registro de diário e o contexto do seu projeto pessoal.</li>
+<li>Compartilhe com o grupo (se em turma) uma coisa que você criou hoje e pretende continuar usando.</li>
+</ol>
+</section>
+
+</main>
+
+<footer>
+<p>Guia Completo de Claude para Iniciantes — material-base de workshop. Revise periodicamente nomes de modelos, espaços e recursos citados aqui, pois a Anthropic atualiza esses itens com frequência.</p>
+</footer>
+
+</body>
+</html>
