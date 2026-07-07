@@ -1,0 +1,221 @@
+Data,Vendedor,Produto,Categoria,Regiao,Canal,Valor,Status
+2025-01-01,Felipe Rocha,Add-on Automação,Add-ons,Norte,Outbound,305.71,Perdido
+2025-01-01,Camila Reis,Plano Enterprise,Assinaturas,Norte,Indicação,831.33,Perdido
+2025-01-02,Bruno Costa,Add-on Automação,Add-ons,Nordeste,Outbound,326.09,Fechado
+2025-01-04,Elisa Martins,Plano Enterprise,Assinaturas,Centro-Oeste,Indicação,923.61,Fechado
+2025-01-05,Ana Ferreira,Plano Enterprise,Assinaturas,Sul,Indicação,835.39,Perdido
+2025-01-09,Camila Reis,Consultoria Onboarding,Serviços,Sul,Indicação,1148.52,Fechado
+2025-01-09,Camila Reis,Plano Starter,Assinaturas,Nordeste,Parceria,93.95,Fechado
+2025-01-11,Camila Reis,Plano Pro,Assinaturas,Sudeste,Indicação,279.58,Em negociação
+2025-01-12,Felipe Rocha,Consultoria Onboarding,Serviços,Centro-Oeste,Inbound,1277.39,Perdido
+2025-01-14,Felipe Rocha,Add-on Automação,Add-ons,Sudeste,Inbound,397.97,Fechado
+2025-01-14,Ana Ferreira,Add-on Automação,Add-ons,Nordeste,Inbound,326.22,Fechado
+2025-01-14,Elisa Martins,Plano Enterprise,Assinaturas,Sul,Parceria,1004.78,Fechado
+2025-01-14,Camila Reis,Consultoria Onboarding,Serviços,Sudeste,Parceria,1074.76,Perdido
+2025-01-15,Camila Reis,Plano Enterprise,Assinaturas,Sul,Outbound,889.94,Perdido
+2025-01-17,Diego Souza,Consultoria Onboarding,Serviços,Centro-Oeste,Parceria,1178.82,Fechado
+2025-01-18,Camila Reis,Plano Enterprise,Assinaturas,Centro-Oeste,Indicação,984.87,Em negociação
+2025-01-18,Diego Souza,Consultoria Onboarding,Serviços,Nordeste,Inbound,1323.06,Fechado
+2025-01-19,Ana Ferreira,Consultoria Onboarding,Serviços,Norte,Inbound,1318.16,Fechado
+2025-01-19,Camila Reis,Consultoria Onboarding,Serviços,Sudeste,Indicação,1236.92,Em negociação
+2025-01-20,Camila Reis,Treinamento In Company,Serviços,Centro-Oeste,Parceria,3576.0,Fechado
+2025-01-20,Felipe Rocha,Plano Starter,Assinaturas,Norte,Parceria,97.54,Perdido
+2025-01-24,Bruno Costa,Plano Pro,Assinaturas,Sudeste,Outbound,261.98,Perdido
+2025-01-24,Camila Reis,Plano Enterprise,Assinaturas,Sul,Outbound,1022.6,Fechado
+2025-01-26,Diego Souza,Plano Pro,Assinaturas,Sudeste,Inbound,280.77,Fechado
+2025-01-27,Felipe Rocha,Add-on Automação,Add-ons,Sudeste,Parceria,386.2,Fechado
+2025-01-27,Bruno Costa,Plano Enterprise,Assinaturas,Sudeste,Outbound,797.59,Fechado
+2025-01-28,Felipe Rocha,Plano Enterprise,Assinaturas,Norte,Outbound,1056.13,Fechado
+2025-01-29,Camila Reis,Plano Enterprise,Assinaturas,Sul,Inbound,841.75,Fechado
+2025-01-29,Ana Ferreira,Add-on Automação,Add-ons,Norte,Inbound,387.7,Em negociação
+2025-01-30,Camila Reis,Plano Pro,Assinaturas,Nordeste,Inbound,269.48,Fechado
+2025-01-30,Bruno Costa,Plano Enterprise,Assinaturas,Sudeste,Indicação,794.98,Perdido
+2025-01-30,Diego Souza,Plano Starter,Assinaturas,Sul,Parceria,98.71,Em negociação
+2025-01-30,Bruno Costa,Plano Starter,Assinaturas,Nordeste,Parceria,109.34,Fechado
+2025-01-30,Camila Reis,Consultoria Onboarding,Serviços,Norte,Parceria,1073.23,Perdido
+2025-02-03,Felipe Rocha,Treinamento In Company,Serviços,Sul,Parceria,3781.7,Em negociação
+2025-02-03,Felipe Rocha,Plano Enterprise,Assinaturas,Centro-Oeste,Parceria,814.02,Perdido
+2025-02-05,Elisa Martins,Consultoria Onboarding,Serviços,Sudeste,Inbound,1063.64,Fechado
+2025-02-06,Bruno Costa,Add-on Automação,Add-ons,Centro-Oeste,Indicação,364.7,Fechado
+2025-02-07,Felipe Rocha,Add-on Automação,Add-ons,Sudeste,Parceria,272.71,Fechado
+2025-02-09,Diego Souza,Add-on Automação,Add-ons,Centro-Oeste,Parceria,284.67,Em negociação
+2025-02-09,Bruno Costa,Treinamento In Company,Serviços,Sudeste,Indicação,3044.67,Fechado
+2025-02-10,Felipe Rocha,Consultoria Onboarding,Serviços,Centro-Oeste,Parceria,1306.28,Perdido
+2025-02-11,Elisa Martins,Treinamento In Company,Serviços,Norte,Indicação,4260.89,Perdido
+2025-02-12,Camila Reis,Treinamento In Company,Serviços,Centro-Oeste,Outbound,4196.41,Em negociação
+2025-02-12,Diego Souza,Plano Starter,Assinaturas,Nordeste,Parceria,110.73,Fechado
+2025-02-13,Elisa Martins,Add-on Automação,Add-ons,Centro-Oeste,Parceria,303.34,Fechado
+2025-02-13,Ana Ferreira,Treinamento In Company,Serviços,Norte,Outbound,3861.51,Em negociação
+2025-02-14,Diego Souza,Treinamento In Company,Serviços,Nordeste,Outbound,3887.11,Em negociação
+2025-02-14,Ana Ferreira,Add-on Automação,Add-ons,Sul,Inbound,382.91,Fechado
+2025-02-15,Diego Souza,Plano Starter,Assinaturas,Nordeste,Parceria,82.04,Em negociação
+2025-02-15,Camila Reis,Plano Starter,Assinaturas,Sul,Indicação,100.86,Fechado
+2025-02-16,Camila Reis,Consultoria Onboarding,Serviços,Sudeste,Parceria,1139.91,Em negociação
+2025-02-18,Ana Ferreira,Plano Starter,Assinaturas,Nordeste,Parceria,99.11,Fechado
+2025-02-18,Ana Ferreira,Consultoria Onboarding,Serviços,Sul,Inbound,1064.0,Fechado
+2025-02-20,Bruno Costa,Plano Starter,Assinaturas,Centro-Oeste,Inbound,77.3,Perdido
+2025-02-21,Ana Ferreira,Treinamento In Company,Serviços,Sul,Parceria,3188.34,Perdido
+2025-02-24,Elisa Martins,Plano Enterprise,Assinaturas,Nordeste,Inbound,803.65,Em negociação
+2025-02-25,Ana Ferreira,Treinamento In Company,Serviços,Sudeste,Indicação,4005.03,Fechado
+2025-02-26,Felipe Rocha,Plano Starter,Assinaturas,Centro-Oeste,Indicação,98.27,Perdido
+2025-02-27,Felipe Rocha,Plano Pro,Assinaturas,Sul,Inbound,302.13,Fechado
+2025-02-28,Elisa Martins,Plano Pro,Assinaturas,Sudeste,Outbound,212.37,Fechado
+2025-02-28,Bruno Costa,Plano Starter,Assinaturas,Centro-Oeste,Indicação,99.15,Fechado
+2025-02-28,Felipe Rocha,Treinamento In Company,Serviços,Sudeste,Indicação,3796.97,Perdido
+2025-02-28,Diego Souza,Plano Enterprise,Assinaturas,Centro-Oeste,Parceria,1051.06,Perdido
+2025-03-02,Bruno Costa,Consultoria Onboarding,Serviços,Sul,Parceria,1253.11,Em negociação
+2025-03-02,Elisa Martins,Plano Pro,Assinaturas,Nordeste,Parceria,250.36,Perdido
+2025-03-02,Elisa Martins,Plano Enterprise,Assinaturas,Nordeste,Inbound,762.12,Fechado
+2025-03-03,Diego Souza,Treinamento In Company,Serviços,Centro-Oeste,Indicação,3175.36,Perdido
+2025-03-04,Diego Souza,Treinamento In Company,Serviços,Centro-Oeste,Indicação,3829.46,Fechado
+2025-03-05,Camila Reis,Plano Pro,Assinaturas,Sudeste,Parceria,290.07,Em negociação
+2025-03-05,Ana Ferreira,Treinamento In Company,Serviços,Norte,Outbound,4045.22,Em negociação
+2025-03-07,Bruno Costa,Plano Pro,Assinaturas,Sudeste,Outbound,271.65,Em negociação
+2025-03-09,Felipe Rocha,Plano Starter,Assinaturas,Sul,Inbound,81.24,Fechado
+2025-03-11,Diego Souza,Consultoria Onboarding,Serviços,Nordeste,Parceria,1033.93,Perdido
+2025-03-12,Diego Souza,Plano Starter,Assinaturas,Sul,Indicação,101.05,Fechado
+2025-03-12,Diego Souza,Plano Enterprise,Assinaturas,Norte,Indicação,1089.09,Em negociação
+2025-03-13,Ana Ferreira,Add-on Automação,Add-ons,Centro-Oeste,Parceria,319.43,Em negociação
+2025-03-13,Elisa Martins,Plano Pro,Assinaturas,Norte,Inbound,292.05,Perdido
+2025-03-14,Felipe Rocha,Consultoria Onboarding,Serviços,Sul,Indicação,1054.17,Em negociação
+2025-03-14,Felipe Rocha,Plano Enterprise,Assinaturas,Norte,Parceria,1054.64,Em negociação
+2025-03-15,Felipe Rocha,Consultoria Onboarding,Serviços,Norte,Inbound,1410.51,Perdido
+2025-03-15,Diego Souza,Add-on Automação,Add-ons,Sudeste,Outbound,334.04,Perdido
+2025-03-15,Bruno Costa,Treinamento In Company,Serviços,Sul,Outbound,4097.7,Perdido
+2025-03-16,Ana Ferreira,Plano Pro,Assinaturas,Centro-Oeste,Indicação,297.95,Perdido
+2025-03-16,Elisa Martins,Add-on Automação,Add-ons,Centro-Oeste,Parceria,307.0,Fechado
+2025-03-19,Felipe Rocha,Treinamento In Company,Serviços,Norte,Inbound,4102.74,Fechado
+2025-03-19,Bruno Costa,Consultoria Onboarding,Serviços,Sudeste,Outbound,1429.6,Fechado
+2025-03-19,Bruno Costa,Plano Pro,Assinaturas,Nordeste,Indicação,287.76,Fechado
+2025-03-20,Elisa Martins,Add-on Automação,Add-ons,Nordeste,Parceria,377.5,Fechado
+2025-03-20,Ana Ferreira,Plano Pro,Assinaturas,Norte,Inbound,251.02,Fechado
+2025-03-21,Elisa Martins,Plano Starter,Assinaturas,Sudeste,Outbound,95.31,Em negociação
+2025-03-22,Bruno Costa,Plano Enterprise,Assinaturas,Nordeste,Parceria,897.4,Fechado
+2025-03-22,Camila Reis,Plano Enterprise,Assinaturas,Centro-Oeste,Inbound,797.77,Perdido
+2025-03-22,Diego Souza,Plano Enterprise,Assinaturas,Nordeste,Outbound,993.28,Perdido
+2025-03-24,Felipe Rocha,Plano Starter,Assinaturas,Nordeste,Parceria,106.19,Perdido
+2025-03-24,Bruno Costa,Add-on Automação,Add-ons,Centro-Oeste,Outbound,302.57,Em negociação
+2025-03-24,Elisa Martins,Plano Pro,Assinaturas,Nordeste,Indicação,218.19,Fechado
+2025-03-25,Bruno Costa,Consultoria Onboarding,Serviços,Nordeste,Indicação,1121.82,Fechado
+2025-03-27,Bruno Costa,Plano Pro,Assinaturas,Sul,Inbound,290.03,Em negociação
+2025-03-28,Ana Ferreira,Plano Starter,Assinaturas,Nordeste,Indicação,89.18,Perdido
+2025-03-28,Ana Ferreira,Plano Pro,Assinaturas,Norte,Parceria,230.73,Fechado
+2025-03-29,Bruno Costa,Plano Enterprise,Assinaturas,Nordeste,Inbound,867.44,Em negociação
+2025-03-29,Felipe Rocha,Plano Starter,Assinaturas,Sul,Inbound,93.61,Fechado
+2025-03-30,Elisa Martins,Plano Enterprise,Assinaturas,Centro-Oeste,Indicação,983.96,Perdido
+2025-03-31,Bruno Costa,Add-on Automação,Add-ons,Sudeste,Inbound,280.78,Em negociação
+2025-03-31,Ana Ferreira,Plano Pro,Assinaturas,Norte,Parceria,298.29,Fechado
+2025-03-31,Camila Reis,Add-on Automação,Add-ons,Sul,Outbound,394.65,Fechado
+2025-04-01,Camila Reis,Consultoria Onboarding,Serviços,Centro-Oeste,Outbound,1429.66,Perdido
+2025-04-02,Elisa Martins,Plano Enterprise,Assinaturas,Nordeste,Inbound,1109.9,Em negociação
+2025-04-03,Ana Ferreira,Add-on Automação,Add-ons,Nordeste,Inbound,319.02,Fechado
+2025-04-03,Ana Ferreira,Consultoria Onboarding,Serviços,Sul,Parceria,1425.35,Perdido
+2025-04-04,Bruno Costa,Plano Enterprise,Assinaturas,Nordeste,Inbound,882.98,Perdido
+2025-04-05,Camila Reis,Plano Pro,Assinaturas,Norte,Indicação,255.29,Perdido
+2025-04-05,Diego Souza,Treinamento In Company,Serviços,Centro-Oeste,Indicação,3718.29,Fechado
+2025-04-06,Bruno Costa,Treinamento In Company,Serviços,Norte,Indicação,3058.97,Perdido
+2025-04-07,Diego Souza,Add-on Automação,Add-ons,Norte,Outbound,297.39,Fechado
+2025-04-08,Diego Souza,Consultoria Onboarding,Serviços,Norte,Parceria,1162.73,Fechado
+2025-04-12,Felipe Rocha,Plano Starter,Assinaturas,Norte,Parceria,105.97,Em negociação
+2025-04-12,Ana Ferreira,Plano Enterprise,Assinaturas,Centro-Oeste,Indicação,947.52,Perdido
+2025-04-13,Diego Souza,Add-on Automação,Add-ons,Centro-Oeste,Inbound,285.82,Em negociação
+2025-04-14,Ana Ferreira,Plano Enterprise,Assinaturas,Norte,Parceria,817.69,Em negociação
+2025-04-15,Elisa Martins,Add-on Automação,Add-ons,Sul,Outbound,291.78,Em negociação
+2025-04-15,Diego Souza,Treinamento In Company,Serviços,Centro-Oeste,Parceria,4036.43,Fechado
+2025-04-15,Diego Souza,Add-on Automação,Add-ons,Nordeste,Inbound,348.01,Fechado
+2025-04-16,Ana Ferreira,Plano Enterprise,Assinaturas,Centro-Oeste,Parceria,1021.62,Em negociação
+2025-04-16,Camila Reis,Add-on Automação,Add-ons,Centro-Oeste,Inbound,392.46,Em negociação
+2025-04-18,Diego Souza,Treinamento In Company,Serviços,Sudeste,Parceria,4299.49,Perdido
+2025-04-18,Camila Reis,Plano Starter,Assinaturas,Norte,Inbound,92.39,Em negociação
+2025-04-18,Elisa Martins,Plano Starter,Assinaturas,Centro-Oeste,Parceria,102.2,Em negociação
+2025-04-19,Diego Souza,Treinamento In Company,Serviços,Nordeste,Outbound,3593.86,Em negociação
+2025-04-20,Bruno Costa,Consultoria Onboarding,Serviços,Nordeste,Parceria,1107.23,Fechado
+2025-04-20,Felipe Rocha,Plano Enterprise,Assinaturas,Nordeste,Inbound,781.05,Em negociação
+2025-04-22,Camila Reis,Add-on Automação,Add-ons,Centro-Oeste,Inbound,372.66,Fechado
+2025-04-22,Felipe Rocha,Consultoria Onboarding,Serviços,Centro-Oeste,Indicação,1485.15,Fechado
+2025-04-23,Ana Ferreira,Treinamento In Company,Serviços,Sudeste,Outbound,4249.62,Fechado
+2025-04-23,Diego Souza,Treinamento In Company,Serviços,Sul,Indicação,3706.85,Fechado
+2025-04-24,Felipe Rocha,Plano Pro,Assinaturas,Sul,Inbound,262.56,Fechado
+2025-04-24,Elisa Martins,Add-on Automação,Add-ons,Centro-Oeste,Parceria,386.18,Em negociação
+2025-04-25,Elisa Martins,Consultoria Onboarding,Serviços,Norte,Parceria,1185.66,Perdido
+2025-04-26,Ana Ferreira,Plano Pro,Assinaturas,Nordeste,Inbound,234.03,Perdido
+2025-04-27,Camila Reis,Plano Enterprise,Assinaturas,Centro-Oeste,Indicação,1027.5,Em negociação
+2025-04-27,Camila Reis,Plano Enterprise,Assinaturas,Sudeste,Outbound,846.0,Fechado
+2025-04-29,Felipe Rocha,Treinamento In Company,Serviços,Norte,Indicação,4358.05,Em negociação
+2025-04-30,Elisa Martins,Plano Enterprise,Assinaturas,Sudeste,Inbound,1102.2,Perdido
+2025-04-30,Bruno Costa,Treinamento In Company,Serviços,Centro-Oeste,Inbound,3722.77,Fechado
+2025-05-01,Bruno Costa,Plano Pro,Assinaturas,Centro-Oeste,Indicação,292.98,Fechado
+2025-05-01,Ana Ferreira,Treinamento In Company,Serviços,Norte,Indicação,4212.93,Em negociação
+2025-05-02,Diego Souza,Plano Enterprise,Assinaturas,Nordeste,Parceria,1024.13,Perdido
+2025-05-02,Ana Ferreira,Plano Starter,Assinaturas,Sudeste,Parceria,105.26,Fechado
+2025-05-02,Elisa Martins,Plano Pro,Assinaturas,Centro-Oeste,Inbound,307.04,Em negociação
+2025-05-04,Camila Reis,Add-on Automação,Add-ons,Sudeste,Parceria,383.41,Em negociação
+2025-05-04,Bruno Costa,Plano Starter,Assinaturas,Norte,Indicação,88.11,Fechado
+2025-05-05,Ana Ferreira,Treinamento In Company,Serviços,Sul,Parceria,4047.17,Em negociação
+2025-05-06,Ana Ferreira,Consultoria Onboarding,Serviços,Centro-Oeste,Outbound,1481.18,Fechado
+2025-05-08,Diego Souza,Add-on Automação,Add-ons,Nordeste,Outbound,330.73,Fechado
+2025-05-08,Felipe Rocha,Consultoria Onboarding,Serviços,Sul,Indicação,1384.8,Perdido
+2025-05-08,Felipe Rocha,Consultoria Onboarding,Serviços,Centro-Oeste,Outbound,1104.33,Perdido
+2025-05-11,Ana Ferreira,Plano Pro,Assinaturas,Sudeste,Outbound,218.47,Fechado
+2025-05-12,Elisa Martins,Plano Starter,Assinaturas,Sul,Inbound,91.74,Perdido
+2025-05-14,Felipe Rocha,Plano Enterprise,Assinaturas,Norte,Parceria,975.76,Perdido
+2025-05-15,Elisa Martins,Plano Enterprise,Assinaturas,Sul,Indicação,1105.56,Fechado
+2025-05-15,Ana Ferreira,Consultoria Onboarding,Serviços,Nordeste,Outbound,1437.85,Fechado
+2025-05-18,Camila Reis,Add-on Automação,Add-ons,Nordeste,Parceria,315.54,Fechado
+2025-05-18,Felipe Rocha,Add-on Automação,Add-ons,Sul,Indicação,392.35,Fechado
+2025-05-18,Felipe Rocha,Plano Pro,Assinaturas,Centro-Oeste,Indicação,230.73,Perdido
+2025-05-19,Ana Ferreira,Plano Pro,Assinaturas,Centro-Oeste,Outbound,226.67,Perdido
+2025-05-19,Diego Souza,Consultoria Onboarding,Serviços,Norte,Indicação,1046.02,Perdido
+2025-05-19,Camila Reis,Treinamento In Company,Serviços,Nordeste,Outbound,3677.51,Fechado
+2025-05-21,Ana Ferreira,Plano Starter,Assinaturas,Norte,Inbound,98.87,Em negociação
+2025-05-22,Bruno Costa,Consultoria Onboarding,Serviços,Norte,Outbound,1111.49,Em negociação
+2025-05-22,Bruno Costa,Treinamento In Company,Serviços,Sul,Indicação,3277.33,Em negociação
+2025-05-22,Felipe Rocha,Plano Starter,Assinaturas,Norte,Outbound,91.66,Fechado
+2025-05-24,Elisa Martins,Plano Enterprise,Assinaturas,Centro-Oeste,Parceria,1022.44,Fechado
+2025-05-25,Bruno Costa,Consultoria Onboarding,Serviços,Nordeste,Outbound,1355.74,Perdido
+2025-05-25,Felipe Rocha,Plano Pro,Assinaturas,Sudeste,Parceria,228.58,Perdido
+2025-05-25,Felipe Rocha,Add-on Automação,Add-ons,Nordeste,Indicação,398.28,Fechado
+2025-05-26,Bruno Costa,Treinamento In Company,Serviços,Norte,Inbound,3807.33,Fechado
+2025-05-28,Bruno Costa,Plano Enterprise,Assinaturas,Centro-Oeste,Inbound,772.3,Perdido
+2025-05-28,Felipe Rocha,Add-on Automação,Add-ons,Sul,Indicação,278.86,Fechado
+2025-05-30,Diego Souza,Treinamento In Company,Serviços,Norte,Outbound,4262.14,Fechado
+2025-05-30,Elisa Martins,Treinamento In Company,Serviços,Nordeste,Outbound,3417.92,Perdido
+2025-05-30,Elisa Martins,Plano Pro,Assinaturas,Sudeste,Indicação,254.46,Fechado
+2025-06-01,Camila Reis,Plano Enterprise,Assinaturas,Sudeste,Indicação,1059.71,Em negociação
+2025-06-02,Felipe Rocha,Plano Enterprise,Assinaturas,Norte,Outbound,954.36,Fechado
+2025-06-02,Ana Ferreira,Plano Enterprise,Assinaturas,Sul,Outbound,1062.09,Perdido
+2025-06-02,Elisa Martins,Plano Enterprise,Assinaturas,Norte,Parceria,918.02,Fechado
+2025-06-03,Ana Ferreira,Consultoria Onboarding,Serviços,Norte,Indicação,1372.58,Fechado
+2025-06-03,Camila Reis,Plano Enterprise,Assinaturas,Norte,Outbound,793.38,Fechado
+2025-06-04,Bruno Costa,Add-on Automação,Add-ons,Nordeste,Parceria,315.89,Fechado
+2025-06-08,Ana Ferreira,Treinamento In Company,Serviços,Sudeste,Outbound,4319.15,Perdido
+2025-06-10,Elisa Martins,Plano Enterprise,Assinaturas,Sudeste,Inbound,962.04,Perdido
+2025-06-10,Elisa Martins,Add-on Automação,Add-ons,Sul,Parceria,374.9,Fechado
+2025-06-10,Felipe Rocha,Consultoria Onboarding,Serviços,Sudeste,Inbound,1438.74,Fechado
+2025-06-10,Diego Souza,Consultoria Onboarding,Serviços,Norte,Parceria,1382.13,Perdido
+2025-06-11,Elisa Martins,Plano Pro,Assinaturas,Centro-Oeste,Parceria,283.2,Fechado
+2025-06-12,Ana Ferreira,Plano Starter,Assinaturas,Sul,Parceria,102.21,Fechado
+2025-06-13,Ana Ferreira,Plano Starter,Assinaturas,Sul,Outbound,102.05,Fechado
+2025-06-13,Felipe Rocha,Treinamento In Company,Serviços,Nordeste,Inbound,3282.46,Fechado
+2025-06-15,Ana Ferreira,Plano Enterprise,Assinaturas,Sudeste,Indicação,1037.25,Perdido
+2025-06-16,Bruno Costa,Consultoria Onboarding,Serviços,Sul,Indicação,1483.12,Em negociação
+2025-06-17,Elisa Martins,Plano Starter,Assinaturas,Norte,Indicação,99.43,Em negociação
+2025-06-17,Bruno Costa,Plano Starter,Assinaturas,Nordeste,Indicação,92.36,Perdido
+2025-06-18,Diego Souza,Plano Enterprise,Assinaturas,Sudeste,Parceria,759.38,Em negociação
+2025-06-18,Elisa Martins,Plano Enterprise,Assinaturas,Sudeste,Inbound,919.56,Em negociação
+2025-06-18,Felipe Rocha,Plano Enterprise,Assinaturas,Nordeste,Indicação,766.81,Em negociação
+2025-06-19,Felipe Rocha,Treinamento In Company,Serviços,Sul,Indicação,3444.26,Fechado
+2025-06-20,Camila Reis,Treinamento In Company,Serviços,Sudeste,Indicação,3414.48,Perdido
+2025-06-20,Diego Souza,Plano Enterprise,Assinaturas,Nordeste,Outbound,899.75,Fechado
+2025-06-20,Diego Souza,Add-on Automação,Add-ons,Sul,Indicação,367.76,Fechado
+2025-06-20,Ana Ferreira,Consultoria Onboarding,Serviços,Norte,Outbound,1452.58,Fechado
+2025-06-21,Camila Reis,Plano Starter,Assinaturas,Sudeste,Parceria,89.79,Fechado
+2025-06-22,Camila Reis,Treinamento In Company,Serviços,Nordeste,Inbound,3508.44,Perdido
+2025-06-23,Felipe Rocha,Add-on Automação,Add-ons,Sul,Inbound,359.15,Em negociação
+2025-06-25,Camila Reis,Plano Pro,Assinaturas,Centro-Oeste,Inbound,286.03,Em negociação
+2025-06-26,Bruno Costa,Add-on Automação,Add-ons,Nordeste,Parceria,311.9,Em negociação
+2025-06-26,Camila Reis,Add-on Automação,Add-ons,Nordeste,Parceria,323.52,Fechado
+2025-06-28,Felipe Rocha,Treinamento In Company,Serviços,Centro-Oeste,Outbound,3901.62,Fechado
+2025-06-28,Elisa Martins,Consultoria Onboarding,Serviços,Sul,Inbound,1044.1,Perdido
+2025-06-29,Elisa Martins,Consultoria Onboarding,Serviços,Norte,Indicação,1125.81,Em negociação
+2025-06-29,Ana Ferreira,Add-on Automação,Add-ons,Norte,Outbound,355.32,Fechado

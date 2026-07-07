@@ -230,6 +230,21 @@ td{
 }
 tr:nth-child(even) td{background:var(--paper);}
 
+/* ---------- Links de download ---------- */
+main a[download]{
+  display:inline-block;
+  background:var(--black);
+  color:var(--white);
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:600;
+  margin:4px 0 4px;
+  transition:background .15s ease;
+}
+main a[download]:hover{background:var(--charcoal);}
+
 /* ---------- Código ---------- */
 pre{
   background:var(--black);
@@ -266,6 +281,70 @@ blockquote.destaque{
   font-size:14.5px;
   color:var(--gray-dark);
   border-radius:0 8px 8px 0;
+}
+
+/* ---------- Callouts (dica / atenção / aviso) ---------- */
+.callout{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin:20px 0 28px;
+  padding:16px 20px;
+  border-radius:0 10px 10px 0;
+  font-size:14.5px;
+  color:var(--gray-dark);
+}
+.callout-icon{
+  font-size:19px;
+  line-height:1.3;
+  flex-shrink:0;
+}
+.callout-label{
+  display:block;
+  font-family:var(--font-head);
+  font-weight:700;
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--black);
+  margin-bottom:4px;
+}
+.callout p{margin:0;}
+.callout-dica{background:var(--paper);border-left:4px solid var(--gray-light);}
+.callout-atencao{background:#F0F0F0;border-left:4px solid var(--gray-mid);}
+.callout-aviso{background:#EAEAEA;border-left:6px solid var(--black);}
+
+/* ---------- Cards de estatística ---------- */
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+  margin:24px 0 32px;
+}
+.stat-card{
+  background:var(--black);
+  color:var(--white);
+  border-radius:12px;
+  padding:26px 22px;
+}
+.stat-number{
+  font-family:var(--font-head);
+  font-weight:800;
+  font-size:36px;
+  line-height:1;
+  margin-bottom:10px;
+  letter-spacing:-.01em;
+}
+.stat-label{
+  font-size:13px;
+  color:var(--gray-light);
+  line-height:1.45;
+  margin-bottom:10px;
+}
+.stat-source{
+  font-size:10.5px;
+  color:var(--gray-mid);
+  display:block;
 }
 
 /* ---------- Responsivo ---------- */
@@ -484,6 +563,58 @@ um pedido em voz alta e gere o Artifact ao vivo, projetando a tela.
 <li>Ter um primeiro contato prático com Artifacts, para sair do módulo já motivado.</li>
 </ul>
 
+<h3>Por que isso importa agora: o profissional do futuro</h3>
+<p>Em 2018, Michelle Schneider levou ao palco do TEDxFAAP a palestra <strong>"O Profissional do Futuro"</strong> — hoje com mais de 3 milhões de visualizações, uma das mais assistidas do gênero no Brasil. O argumento central: a IA não é mais ficção científica, e o mercado de trabalho já está sendo redesenhado por ela. Um estudo de Oxford citado na palestra estima que <strong>cerca de 47% das ocupações atuais podem desaparecer ou se transformar radicalmente nas próximas duas décadas</strong> — não só trabalho operacional, mas também funções que exigem formação longa.</p>
+<p>A resposta a essa transformação, segundo o World Economic Forum e a Minerva School (também citados na palestra), não é competir com a máquina em velocidade de cálculo — é desenvolver 4 blocos de habilidade que a IA ainda não replica bem:</p>
+<table>
+<tr><th>Bloco de habilidade</th><th>O que envolve</th></tr>
+<tr><td>Mente inovadora</td><td>Pensamento criativo, curiosidade, aprendizado contínuo</td></tr>
+<tr><td>Letramento tecnológico + liderança</td><td>Saber operar e liderar com ferramentas de IA, influência social</td></tr>
+<tr><td>Inteligência emocional</td><td>Automotivação, autoconsciência, empatia, escuta ativa</td></tr>
+<tr><td>Saúde mental</td><td>Resiliência, flexibilidade, agilidade diante da mudança</td></tr>
+</table>
+<p>A frase que resume o recado de Michelle Schneider: <strong>"saber como pensar, e não mais o que pensar"</strong> — o profissional do futuro é um <em>longlife learner</em>, alguém que constrói múltiplas carreiras ao longo da vida em vez de uma trajetória linear única.</p>
+<div class="callout callout-dica">
+<span class="callout-icon">💡</span>
+<div class="callout-body">
+<span class="callout-label">Onde este curso entra</span>
+<p>O segundo bloco — letramento tecnológico — é o mais prático de construir a partir de hoje. Este workshop existe para te dar exatamente isso: fluência real em trabalhar ao lado da IA, não apenas ouvir falar sobre ela.</p>
+</div>
+</div>
+
+<h3>O que os dados já mostram: a aceleração não é promessa, é presente</h3>
+<p>Diferente de 2018, hoje já existem dados concretos de produtividade — não projeções. Alguns números recentes:</p>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number">+25%</div>
+<div class="stat-label">mais rápido na conclusão de tarefas por profissionais usando IA generativa, com +40% de qualidade</div>
+<span class="stat-source">Harvard Business School + BCG, estudo de campo com 758 consultores</span>
+</div>
+<div class="stat-card">
+<div class="stat-number">12x</div>
+<div class="stat-label">mais rápido: velocidade média em tarefas de nível universitário usando Claude como parceiro de raciocínio</div>
+<span class="stat-source">Anthropic Economic Index</span>
+</div>
+<div class="stat-card">
+<div class="stat-number">78%</div>
+<div class="stat-label">das empresas já usam IA em pelo menos uma área do negócio (eram 72% um ano antes)</div>
+<span class="stat-source">McKinsey, State of AI 2025</span>
+</div>
+<div class="stat-card">
+<div class="stat-number">4x</div>
+<div class="stat-label">crescimento de produtividade em setores mais expostos à IA, na comparação com setores menos expostos</div>
+<span class="stat-source">PwC, Global AI Jobs Barometer 2025</span>
+</div>
+</div>
+<p>Um dado adicional que reforça o argumento de carreira da própria Michelle Schneider: segundo a Gupy, a busca de empresas brasileiras por profissionais com conhecimento em IA cresceu <strong>306%</strong>, e cargos expostos à IA pagam em média <strong>56% a mais</strong> do que cargos equivalentes sem essa exposição.</p>
+<div class="callout callout-atencao">
+<span class="callout-icon">⚠️</span>
+<div class="callout-body">
+<span class="callout-label">Atenção</span>
+<p>Nem toda empresa que adota IA já colhe resultado: um estudo do NBER mostra que a maior parte ainda não viu ganho real de produtividade. A diferença entre "ter acesso à ferramenta" e "saber usá-la bem" é exatamente o que este curso resolve.</p>
+</div>
+</div>
+
 <h3>O que é o Claude, em termos simples</h3>
 <p>O Claude é um assistente de inteligência artificial com quem você conversa em linguagem natural — como se estivesse escrevendo para uma pessoa muito bem informada, disposta a ajudar, mas que não tem memória perfeita do que "deveria saber" sobre você a menos que você conte. Ele não pensa como um ser humano, não tem vontades próprias e não "sabe" fatos com 100% de certeza o tempo todo — por isso, saber usá-lo bem inclui saber quando confiar e quando checar (voltaremos a isso no Módulo 9).</p>
 
@@ -559,12 +690,37 @@ durante os exercícios e colete 2-3 exemplos de prompts dos alunos para comentar
 <li><strong>Exemplo:</strong> um modelo do resultado esperado, quando possível — mostrar é quase sempre mais eficaz do que só descrever.</li>
 </ul>
 
-<h3>Estrutura base de um bom prompt</h3>
-<p><strong>Objetivo + Contexto + Formato de resposta + Restrições</strong></p>
-<pre><code>[Objetivo] O que você quer que o Claude faça
-[Contexto] Informações de fundo relevantes
-[Formato] Como você quer receber a resposta (lista, tabela, texto corrido, tamanho)
-[Restrições] O que evitar, limites de tempo/espaço, tom desejado</code></pre>
+<h3>Método CORE: a estrutura base de um bom prompt</h3>
+<p>Para não depender de "inspiração" toda vez que for escrever um prompt, use um método fixo e repetível. Chamamos de <strong>Método CORE</strong> — 4 blocos, nesta ordem:</p>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number">C</div>
+<div class="stat-label"><strong>Contexto</strong> — informações de fundo que o Claude precisa para fazer isso bem</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">O</div>
+<div class="stat-label"><strong>Objetivo</strong> — o que você quer que o Claude faça, de forma direta</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">R</div>
+<div class="stat-label"><strong>Resultado esperado</strong> — formato da resposta (lista, tabela, texto, tamanho)</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">E</div>
+<div class="stat-label"><strong>Exceções</strong> — o que evitar, limites e tom desejado</div>
+</div>
+</div>
+<pre><code>[Contexto] Informações de fundo relevantes
+[Objetivo] O que você quer que o Claude faça
+[Resultado esperado] Como você quer receber a resposta (lista, tabela, texto corrido, tamanho)
+[Exceções] O que evitar, limites de tempo/espaço, tom desejado</code></pre>
+<div class="callout callout-dica">
+<span class="callout-icon">💡</span>
+<div class="callout-body">
+<span class="callout-label">Por que decorar um método</span>
+<p>O Método CORE existe para virar hábito rápido, não burocracia. Depois de algumas semanas de prática, você monta um prompt CORE em segundos, sem precisar pensar conscientemente em cada bloco.</p>
+</div>
+</div>
 
 <h3>Boas vs. más práticas</h3>
 <table>
@@ -915,11 +1071,41 @@ e-mails inválidos, sem apagar nada automaticamente — só sinalizar.</code></p
 Ponto de atenção importante sobre vibe coding: a ideia original é "confiar no resultado e seguir em frente" — o que é ótimo para prototipagem rápida, mas arriscado quando o script mexe com dados importantes ou arquivos que você não pode perder. Por isso, mesmo fazendo vibe coding, mantenha sempre o hábito de pedir uma explicação do que o script faz antes de rodar, e testar primeiro em uma cópia dos seus dados.
 </blockquote>
 
+<h3>Exercício aprofundado: painel de performance de vendas</h3>
+<p>Para sair do módulo com um entregável real — não só teoria — vamos usar uma base de dados fictícia de vendas. Baixe o arquivo abaixo antes de começar:</p>
+<p><a href="dados-vendas-exemplo.csv" download><strong>⬇ dados-vendas-exemplo.csv</strong></a> — 220 negociações fictícias de 6 vendedores, ao longo de 6 meses, com produto, região, canal de origem, valor e status (Fechado / Perdido / Em negociação).</p>
+<p><strong>Etapa 1 — Diagnóstico rápido:</strong> envie o CSV para o Claude e peça uma primeira leitura.</p>
+<pre><code>Analise a planilha de vendas anexada. Me traga, em bullets curtos:
+1. Faturamento total considerando apenas negociações "Fechado";
+2. Os 2 vendedores com melhor taxa de conversão (Fechado ÷ total de negociações);
+3. A região e o canal de origem com maior volume de negócios "Perdido";
+4. Qualquer padrão sazonal ao longo dos 6 meses que valha destacar.</code></pre>
+<p><strong>Etapa 2 — Painel de verdade:</strong> peça um arquivo entregável, não só texto no chat (isso aciona a Skill de planilhas do Módulo 4).</p>
+<pre><code>Com base na mesma planilha, crie um dashboard em Excel com:
+- Aba "Resumo": faturamento por vendedor e por categoria de produto;
+- Aba "Funil": quantidade de negociações por status, separado por canal;
+- Aba "Dados": a base original, sem alterações.
+Use fórmulas de verdade (não valores fixos), para que eu possa atualizar
+os dados no futuro e o painel recalcular sozinho.</code></pre>
+<p><strong>Etapa 3 — Automação (Claude Code):</strong> transforme a análise em algo reutilizável toda semana.</p>
+<pre><code>Crie um script em Claude Code que leia um CSV no mesmo formato desta planilha
+de vendas e gere automaticamente um resumo em texto com: faturamento fechado,
+taxa de conversão geral e o vendedor destaque da semana. Me explique o
+script antes de rodar.</code></pre>
+<div class="callout callout-dica">
+<span class="callout-icon">💡</span>
+<div class="callout-body">
+<span class="callout-label">Por que vendas, e não outro exemplo</span>
+<p>O raciocínio serve para qualquer área com dados tabulares — financeiro, marketing, RH, operações. Escolhemos vendas porque o resultado (faturamento, conversão, ranking) é intuitivo para validar se a análise do Claude está correta.</p>
+</div>
+</div>
+
 <h3>Exercícios práticos</h3>
 <ol>
 <li>Crie 2 prompt templates para tarefas que você repete toda semana e salve-os (vamos formalizar isso no <code>.md</code> do Módulo 8).</li>
 <li>No Claude Code, peça um script simples para uma tarefa pessoal real (organizar arquivos, limpar uma lista, converter um formato de dados). Peça para o Claude explicar o script antes de rodar.</li>
 <li>Rode o script em uma cópia de teste dos seus dados, nunca no arquivo original na primeira tentativa.</li>
+<li>Complete o exercício de painel de vendas acima até pelo menos a Etapa 2.</li>
 </ol>
 
 <p><strong>Dicas e armadilhas comuns:</strong> a armadilha mais comum aqui é rodar um script direto no arquivo original "porque parece simples". Crie o hábito de sempre testar em cópia primeiro — é uma boa prática, não desconfiança do Claude.</p>
@@ -1266,8 +1452,8 @@ pela sala para ajudar. Encerre com uma rodada rápida em que cada aluno comparti
 <h3>Cheat sheet — cola rápida de prompts</h3>
 <pre><code># Cola rápida de prompts
 
-## Estrutura base
-[Objetivo] + [Contexto] + [Formato] + [Restrições]
+## Método CORE (estrutura base de prompt)
+[Contexto] + [Objetivo] + [Resultado esperado] + [Exceções]
 
 ## Pedir raciocínio passo a passo
 "Pense passo a passo antes de responder..."
