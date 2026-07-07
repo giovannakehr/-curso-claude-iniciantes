@@ -9,14 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --black:#0A0A0A;
-  --charcoal:#1A1A1A;
-  --gray-dark:#333333;
-  --gray-mid:#8A8A8A;
-  --gray-light:#BFBFBF;
-  --off-white:#E6E6E6;
-  --paper:#FAFAFA;
+  --black:#2E1065;
+  --charcoal:#3D1A82;
+  --gray-dark:#3D3450;
+  --gray-mid:#8B7FA3;
+  --gray-light:#D6C8EA;
+  --off-white:#EFE6F7;
+  --paper:#FAF7FC;
   --white:#FFFFFF;
+  --accent:#F97316;
+  --accent-dark:#C2410C;
   --sidebar-w:300px;
   --font-head:'Montserrat',sans-serif;
   --font-body:'Inter',sans-serif;
@@ -105,7 +107,7 @@ body{
 #indice > ol > li > a:hover,
 #indice > ol > li > a.active{
   background:var(--charcoal);
-  border-left-color:var(--off-white);
+  border-left-color:var(--accent);
   color:var(--white);
 }
 #indice ol ol{
@@ -125,7 +127,7 @@ body{
 #indice ol ol li a:hover,
 #indice ol ol li a.active{
   background:var(--charcoal);
-  color:var(--white);
+  color:var(--accent);
 }
 
 /* ---------- Layout geral ---------- */
@@ -233,7 +235,7 @@ tr:nth-child(even) td{background:var(--paper);}
 /* ---------- Links de download ---------- */
 main a[download]{
   display:inline-block;
-  background:var(--black);
+  background:var(--accent);
   color:var(--white);
   text-decoration:none;
   padding:10px 18px;
@@ -243,7 +245,7 @@ main a[download]{
   margin:4px 0 4px;
   transition:background .15s ease;
 }
-main a[download]:hover{background:var(--charcoal);}
+main a[download]:hover{background:var(--accent-dark);}
 
 /* ---------- Código ---------- */
 pre{
@@ -275,7 +277,7 @@ p code, li code{
 /* ---------- Destaques ---------- */
 blockquote.destaque{
   background:var(--paper);
-  border-left:4px solid var(--black);
+  border-left:4px solid var(--accent);
   margin:20px 0 28px;
   padding:16px 20px;
   font-size:14.5px;
@@ -310,9 +312,9 @@ blockquote.destaque{
   margin-bottom:4px;
 }
 .callout p{margin:0;}
-.callout-dica{background:var(--paper);border-left:4px solid var(--gray-light);}
-.callout-atencao{background:#F0F0F0;border-left:4px solid var(--gray-mid);}
-.callout-aviso{background:#EAEAEA;border-left:6px solid var(--black);}
+.callout-dica{background:var(--paper);border-left:4px solid var(--accent);}
+.callout-atencao{background:var(--off-white);border-left:4px solid var(--gray-mid);}
+.callout-aviso{background:var(--gray-light);border-left:6px solid var(--charcoal);}
 
 /* ---------- Cards de estatística ---------- */
 .stats-grid{
@@ -334,6 +336,7 @@ blockquote.destaque{
   line-height:1;
   margin-bottom:10px;
   letter-spacing:-.01em;
+  color:var(--accent);
 }
 .stat-label{
   font-size:13px;
@@ -690,35 +693,35 @@ durante os exercícios e colete 2-3 exemplos de prompts dos alunos para comentar
 <li><strong>Exemplo:</strong> um modelo do resultado esperado, quando possível — mostrar é quase sempre mais eficaz do que só descrever.</li>
 </ul>
 
-<h3>Método CORE: a estrutura base de um bom prompt</h3>
-<p>Para não depender de "inspiração" toda vez que for escrever um prompt, use um método fixo e repetível. Chamamos de <strong>Método CORE</strong> — 4 blocos, nesta ordem:</p>
+<h3>Fórmula OCFR: a estrutura base de um bom prompt</h3>
+<p>Para não depender de "inspiração" toda vez que for escrever um prompt, use uma fórmula fixa e repetível. Chamamos de <strong>Fórmula OCFR</strong> — 4 blocos, nesta ordem:</p>
 <div class="stats-grid">
-<div class="stat-card">
-<div class="stat-number">C</div>
-<div class="stat-label"><strong>Contexto</strong> — informações de fundo que o Claude precisa para fazer isso bem</div>
-</div>
 <div class="stat-card">
 <div class="stat-number">O</div>
 <div class="stat-label"><strong>Objetivo</strong> — o que você quer que o Claude faça, de forma direta</div>
 </div>
 <div class="stat-card">
-<div class="stat-number">R</div>
-<div class="stat-label"><strong>Resultado esperado</strong> — formato da resposta (lista, tabela, texto, tamanho)</div>
+<div class="stat-number">C</div>
+<div class="stat-label"><strong>Contexto</strong> — informações de fundo que o Claude precisa para fazer isso bem</div>
 </div>
 <div class="stat-card">
-<div class="stat-number">E</div>
-<div class="stat-label"><strong>Exceções</strong> — o que evitar, limites e tom desejado</div>
+<div class="stat-number">F</div>
+<div class="stat-label"><strong>Formato</strong> — como você quer receber a resposta (lista, tabela, texto, tamanho)</div>
+</div>
+<div class="stat-card">
+<div class="stat-number">R</div>
+<div class="stat-label"><strong>Restrições</strong> — o que evitar, limites e tom desejado</div>
 </div>
 </div>
-<pre><code>[Contexto] Informações de fundo relevantes
-[Objetivo] O que você quer que o Claude faça
-[Resultado esperado] Como você quer receber a resposta (lista, tabela, texto corrido, tamanho)
-[Exceções] O que evitar, limites de tempo/espaço, tom desejado</code></pre>
+<pre><code>[Objetivo] O que você quer que o Claude faça
+[Contexto] Informações de fundo relevantes
+[Formato] Como você quer receber a resposta (lista, tabela, texto corrido, tamanho)
+[Restrições] O que evitar, limites de tempo/espaço, tom desejado</code></pre>
 <div class="callout callout-dica">
 <span class="callout-icon">💡</span>
 <div class="callout-body">
-<span class="callout-label">Por que decorar um método</span>
-<p>O Método CORE existe para virar hábito rápido, não burocracia. Depois de algumas semanas de prática, você monta um prompt CORE em segundos, sem precisar pensar conscientemente em cada bloco.</p>
+<span class="callout-label">Por que decorar uma fórmula</span>
+<p>A Fórmula OCFR existe para virar hábito rápido, não burocracia. Depois de algumas semanas de prática, você monta um prompt OCFR em segundos, sem precisar pensar conscientemente em cada bloco.</p>
 </div>
 </div>
 
@@ -1452,8 +1455,8 @@ pela sala para ajudar. Encerre com uma rodada rápida em que cada aluno comparti
 <h3>Cheat sheet — cola rápida de prompts</h3>
 <pre><code># Cola rápida de prompts
 
-## Método CORE (estrutura base de prompt)
-[Contexto] + [Objetivo] + [Resultado esperado] + [Exceções]
+## Fórmula OCFR (estrutura base de prompt)
+[Objetivo] + [Contexto] + [Formato] + [Restrições]
 
 ## Pedir raciocínio passo a passo
 "Pense passo a passo antes de responder..."
