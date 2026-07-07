@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --black:#2E1065;
-  --charcoal:#3D1A82;
-  --gray-dark:#3D3450;
-  --gray-mid:#8B7FA3;
-  --gray-light:#D6C8EA;
-  --off-white:#EFE6F7;
-  --paper:#FAF7FC;
+  --black:#7C2D12;
+  --charcoal:#9A3412;
+  --gray-dark:#5C3A28;
+  --gray-mid:#A47C63;
+  --gray-light:#F0DCC9;
+  --off-white:#FBEEE3;
+  --paper:#FFFAF5;
   --white:#FFFFFF;
-  --accent:#F97316;
-  --accent-dark:#C2410C;
+  --accent:#7C3AED;
+  --accent-dark:#5B21B6;
   --sidebar-w:300px;
   --font-head:'Montserrat',sans-serif;
   --font-body:'Inter',sans-serif;
@@ -364,6 +364,56 @@ blockquote.destaque{
   #navOverlay.open{display:block;}
   header,main,footer{padding-left:28px;padding-right:28px;}
   header{padding-top:80px;}
+  #claudeHelp{right:16px;bottom:16px;width:52px;height:52px;}
+  #claudeHelp svg{width:24px;height:24px;}
+  #claudeHelp-tooltip{display:none;}
+}
+
+/* ---------- Botão flutuante de ajuda (Claude) ---------- */
+#claudeHelp{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#D97757;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.28);
+  text-decoration:none;
+  z-index:999;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+#claudeHelp:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(0,0,0,.32);
+  background:#C2653F;
+}
+#claudeHelp svg{width:28px;height:28px;}
+#claudeHelp-tooltip{
+  position:fixed;
+  right:92px;
+  bottom:38px;
+  background:var(--black);
+  color:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  font-size:13px;
+  font-family:var(--font-body);
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(6px);
+  transition:opacity .15s ease, transform .15s ease;
+  z-index:999;
+}
+#claudeHelp:hover + #claudeHelp-tooltip,
+#claudeHelp:focus + #claudeHelp-tooltip{
+  opacity:1;
+  transform:translateX(0);
 }
 </style>
 </head>
@@ -392,6 +442,7 @@ ainda é a mesma antes de apresentar em turma — esses detalhes mudam com frequ
 <nav id="indice">
 <h2>Índice do curso</h2>
 <ol>
+<li><a href="#modulo-1">Módulo 1 — Boas-vindas, mentalidade de uso e primeiro contato com Artifacts</a></li>
 <li><a href="#modulo-0">Módulo 0 — Mapa do Claude: espaços, modelos e planos</a>
   <ol>
   <li><a href="#m0-espacos">0.1 Visão geral dos espaços</a></li>
@@ -404,7 +455,6 @@ ainda é a mesma antes de apresentar em turma — esses detalhes mudam com frequ
   <li><a href="#m0-exercicios">0.8 Exercícios práticos</a></li>
   </ol>
 </li>
-<li><a href="#modulo-1">Módulo 1 — Boas-vindas, mentalidade de uso e primeiro contato com Artifacts</a></li>
 <li><a href="#modulo-2">Módulo 2 — Fundamentos de prompts</a></li>
 <li><a href="#modulo-3">Módulo 3 — Prompts mais poderosos: papéis, formatos, iteração e tom</a></li>
 <li><a href="#modulo-4">Módulo 4 — Skills: capacidades do modelo e Agent Skills</a></li>
@@ -419,6 +469,123 @@ ainda é a mesma antes de apresentar em turma — esses detalhes mudam com frequ
 </nav>
 
 <main>
+
+<section id="modulo-1">
+<h2>Módulo 1 — Boas-vindas, mentalidade de uso e primeiro contato com Artifacts</h2>
+<p><em>Tempo estimado: 45–60 minutos.</em></p>
+
+<!--
+NOTA DE FACILITAÇÃO: este módulo funciona bem logo após uma pausa para café, porque é mais leve e
+gera bastante engajamento com a demonstração de Artifacts. Se possível, peça para um aluno sugerir
+um pedido em voz alta e gere o Artifact ao vivo, projetando a tela.
+-->
+
+<p><strong>Objetivos de aprendizagem:</strong></p>
+<ul>
+<li>Entender o que o Claude é e não é, em termos simples.</li>
+<li>Diferenciar "usar de qualquer jeito" de "usar de forma estratégica".</li>
+<li>Ter um primeiro contato prático com Artifacts, para sair do módulo já motivado.</li>
+</ul>
+
+<h3>Por que isso importa agora: o profissional do futuro</h3>
+<p>Em 2018, Michelle Schneider levou ao palco do TEDxFAAP a palestra <strong>"O Profissional do Futuro"</strong> — hoje com mais de 3 milhões de visualizações, uma das mais assistidas do gênero no Brasil. O argumento central: a IA não é mais ficção científica, e o mercado de trabalho já está sendo redesenhado por ela. Um estudo de Oxford citado na palestra estima que <strong>cerca de 47% das ocupações atuais podem desaparecer ou se transformar radicalmente nas próximas duas décadas</strong> — não só trabalho operacional, mas também funções que exigem formação longa.</p>
+<p>A resposta a essa transformação, segundo o World Economic Forum e a Minerva School (também citados na palestra), não é competir com a máquina em velocidade de cálculo — é desenvolver 4 blocos de habilidade que a IA ainda não replica bem:</p>
+<table>
+<tr><th>Bloco de habilidade</th><th>O que envolve</th></tr>
+<tr><td>Mente inovadora</td><td>Pensamento criativo, curiosidade, aprendizado contínuo</td></tr>
+<tr><td>Letramento tecnológico + liderança</td><td>Saber operar e liderar com ferramentas de IA, influência social</td></tr>
+<tr><td>Inteligência emocional</td><td>Automotivação, autoconsciência, empatia, escuta ativa</td></tr>
+<tr><td>Saúde mental</td><td>Resiliência, flexibilidade, agilidade diante da mudança</td></tr>
+</table>
+<p>A frase que resume o recado de Michelle Schneider: <strong>"saber como pensar, e não mais o que pensar"</strong> — o profissional do futuro é um <em>longlife learner</em>, alguém que constrói múltiplas carreiras ao longo da vida em vez de uma trajetória linear única.</p>
+<div class="callout callout-dica">
+<span class="callout-icon">💡</span>
+<div class="callout-body">
+<span class="callout-label">Onde este curso entra</span>
+<p>O segundo bloco — letramento tecnológico — é o mais prático de construir a partir de hoje. Este workshop existe para te dar exatamente isso: fluência real em trabalhar ao lado da IA, não apenas ouvir falar sobre ela.</p>
+</div>
+</div>
+
+<h3>O que os dados já mostram: a aceleração não é promessa, é presente</h3>
+<p>Diferente de 2018, hoje já existem dados concretos de produtividade — não projeções. Alguns números recentes:</p>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number">+25%</div>
+<div class="stat-label">mais rápido na conclusão de tarefas por profissionais usando IA generativa, com +40% de qualidade</div>
+<span class="stat-source">Harvard Business School + BCG, estudo de campo com 758 consultores</span>
+</div>
+<div class="stat-card">
+<div class="stat-number">12x</div>
+<div class="stat-label">mais rápido: velocidade média em tarefas de nível universitário usando Claude como parceiro de raciocínio</div>
+<span class="stat-source">Anthropic Economic Index</span>
+</div>
+<div class="stat-card">
+<div class="stat-number">78%</div>
+<div class="stat-label">das empresas já usam IA em pelo menos uma área do negócio (eram 72% um ano antes)</div>
+<span class="stat-source">McKinsey, State of AI 2025</span>
+</div>
+<div class="stat-card">
+<div class="stat-number">4x</div>
+<div class="stat-label">crescimento de produtividade em setores mais expostos à IA, na comparação com setores menos expostos</div>
+<span class="stat-source">PwC, Global AI Jobs Barometer 2025</span>
+</div>
+</div>
+<p>Um dado adicional que reforça o argumento de carreira da própria Michelle Schneider: segundo a Gupy, a busca de empresas brasileiras por profissionais com conhecimento em IA cresceu <strong>306%</strong>, e cargos expostos à IA pagam em média <strong>56% a mais</strong> do que cargos equivalentes sem essa exposição.</p>
+<div class="callout callout-atencao">
+<span class="callout-icon">⚠️</span>
+<div class="callout-body">
+<span class="callout-label">Atenção</span>
+<p>Nem toda empresa que adota IA já colhe resultado: um estudo do NBER mostra que a maior parte ainda não viu ganho real de produtividade. A diferença entre "ter acesso à ferramenta" e "saber usá-la bem" é exatamente o que este curso resolve.</p>
+</div>
+</div>
+
+<h3>O que é o Claude, em termos simples</h3>
+<p>O Claude é um assistente de inteligência artificial com quem você conversa em linguagem natural — como se estivesse escrevendo para uma pessoa muito bem informada, disposta a ajudar, mas que não tem memória perfeita do que "deveria saber" sobre você a menos que você conte. Ele não pensa como um ser humano, não tem vontades próprias e não "sabe" fatos com 100% de certeza o tempo todo — por isso, saber usá-lo bem inclui saber quando confiar e quando checar (voltaremos a isso no Módulo 9).</p>
+
+<h3>Usar de qualquer jeito vs. usar de forma estratégica</h3>
+<table>
+<tr><th>Uso "de qualquer jeito"</th><th>Uso estratégico</th></tr>
+<tr><td>Pergunta curta, sem contexto, e aceita a primeira resposta</td><td>Dá contexto, pede o formato certo e itera até chegar no resultado</td></tr>
+<tr><td>Repete a mesma explicação toda conversa</td><td>Mantém um <code>.md</code> ou Project com contexto salvo</td></tr>
+<tr><td>Usa sempre o mesmo espaço para tudo</td><td>Escolhe Chat, Project, Cowork ou Claude Code conforme a tarefa</td></tr>
+<tr><td>Aceita a resposta sem checar nada</td><td>Sabe quando validar e pede fontes ou autoavaliação crítica</td></tr>
+</table>
+<p>O objetivo deste workshop é sair da coluna da esquerda e entrar na coluna da direita — no seu próprio ritmo, sem precisar virar um especialista técnico.</p>
+
+<h3>Boas práticas gerais de uso</h3>
+<ul>
+<li><strong>Ética:</strong> use o Claude para acelerar seu trabalho, não para se passar por outra pessoa ou enganar alguém.</li>
+<li><strong>Privacidade:</strong> evite colar dados sensíveis (senhas, números de documento, dados bancários) em qualquer prompt — vamos aprofundar isso no Módulo 10.</li>
+<li><strong>Senso crítico:</strong> trate respostas do Claude como um primeiro rascunho muito bom, não como verdade absoluta — especialmente em temas de saúde, direito e finanças.</li>
+</ul>
+
+<h3>Pensar junto com a IA</h3>
+<p>Uma mudança de mentalidade importante: em vez de tratar o Claude como um "oráculo" que só dá respostas prontas, trate-o como um parceiro de raciocínio.</p>
+<ul>
+<li><strong>Peça para o Claude fazer perguntas antes de responder</strong>, quando o pedido for complexo ou ambíguo;</li>
+<li><strong>Peça raciocínio passo a passo</strong>, para entender o "porquê" da resposta, não só o resultado final;</li>
+<li><strong>Use o Claude para brainstorm</strong>, pedindo várias alternativas antes de decidir qual seguir.</li>
+</ul>
+<p><strong>Exemplo de prompt que pede perguntas antes de responder:</strong></p>
+<pre><code>Quero montar um plano de estudos para aprender espanhol básico em 3 meses,
+dedicando cerca de 30 minutos por dia.
+Antes de montar o plano, me faça as perguntas que você precisar para
+personalizar isso para a minha rotina.</code></pre>
+
+<h3>Primeiro contato com Artifacts</h3>
+<p>Artifacts é o recurso que faz o Claude gerar, ao lado da conversa, um documento, uma pequena planilha, um trecho de código ou até um mini-aplicativo — algo que você pode ver, editar e reaproveitar, em vez de só ler um texto corrido no chat. Para quem está começando, é a forma mais rápida de sentir o valor prático do Claude.</p>
+<p><strong>Exemplo de prompt para gerar um primeiro Artifact:</strong></p>
+<pre><code>Crie uma lista de verificação (checklist) para eu organizar uma mudança de casa,
+dividida em: 2 meses antes, 1 mês antes, 1 semana antes e no dia da mudança.
+Apresente como um documento organizado que eu possa editar depois.</code></pre>
+
+<h3>Exercícios práticos</h3>
+<ol>
+<li>Peça ao Claude para gerar um Artifact simples e útil para sua rotina (ex.: uma checklist, um roteiro de estudos, uma tabela de orçamento pessoal).</li>
+<li>Refaça o mesmo pedido, mas primeiro peça para o Claude te fazer perguntas antes de responder. Compare os dois resultados.</li>
+</ol>
+<p><strong>Dicas e armadilhas comuns:</strong> não desanime se a primeira resposta não vier exatamente como você queria — isso é normal e esperado. O ajuste fino por meio de iteração (pedir para refazer, detalhar ou mudar o formato) é parte do processo, não um sinal de que "fez algo errado". Vamos aprofundar isso no Módulo 3.</p>
+</section>
 
 <section id="modulo-0">
 <h2>Módulo 0 — Mapa do Claude: espaços, modelos e planos</h2>
@@ -547,123 +714,6 @@ Sempre que eu mandar um texto em inglês, corrija e explique o erro de forma sim
 <li>Execute a mesma pergunta em dois modelos diferentes (ex.: "monte um plano de estudos de 4 semanas para aprender o básico de Excel") e compare: rapidez, profundidade e clareza da resposta.</li>
 </ol>
 <p><strong>Dicas e armadilhas comuns:</strong> o erro mais comum de iniciante aqui é tentar fazer tudo dentro do Chat simples, mesmo em projetos longos — isso obriga a repetir contexto toda hora e faz o aluno perder o valor real do Project e do Cowork.</p>
-</section>
-
-<section id="modulo-1">
-<h2>Módulo 1 — Boas-vindas, mentalidade de uso e primeiro contato com Artifacts</h2>
-<p><em>Tempo estimado: 45–60 minutos.</em></p>
-
-<!--
-NOTA DE FACILITAÇÃO: este módulo funciona bem logo após uma pausa para café, porque é mais leve e
-gera bastante engajamento com a demonstração de Artifacts. Se possível, peça para um aluno sugerir
-um pedido em voz alta e gere o Artifact ao vivo, projetando a tela.
--->
-
-<p><strong>Objetivos de aprendizagem:</strong></p>
-<ul>
-<li>Entender o que o Claude é e não é, em termos simples.</li>
-<li>Diferenciar "usar de qualquer jeito" de "usar de forma estratégica".</li>
-<li>Ter um primeiro contato prático com Artifacts, para sair do módulo já motivado.</li>
-</ul>
-
-<h3>Por que isso importa agora: o profissional do futuro</h3>
-<p>Em 2018, Michelle Schneider levou ao palco do TEDxFAAP a palestra <strong>"O Profissional do Futuro"</strong> — hoje com mais de 3 milhões de visualizações, uma das mais assistidas do gênero no Brasil. O argumento central: a IA não é mais ficção científica, e o mercado de trabalho já está sendo redesenhado por ela. Um estudo de Oxford citado na palestra estima que <strong>cerca de 47% das ocupações atuais podem desaparecer ou se transformar radicalmente nas próximas duas décadas</strong> — não só trabalho operacional, mas também funções que exigem formação longa.</p>
-<p>A resposta a essa transformação, segundo o World Economic Forum e a Minerva School (também citados na palestra), não é competir com a máquina em velocidade de cálculo — é desenvolver 4 blocos de habilidade que a IA ainda não replica bem:</p>
-<table>
-<tr><th>Bloco de habilidade</th><th>O que envolve</th></tr>
-<tr><td>Mente inovadora</td><td>Pensamento criativo, curiosidade, aprendizado contínuo</td></tr>
-<tr><td>Letramento tecnológico + liderança</td><td>Saber operar e liderar com ferramentas de IA, influência social</td></tr>
-<tr><td>Inteligência emocional</td><td>Automotivação, autoconsciência, empatia, escuta ativa</td></tr>
-<tr><td>Saúde mental</td><td>Resiliência, flexibilidade, agilidade diante da mudança</td></tr>
-</table>
-<p>A frase que resume o recado de Michelle Schneider: <strong>"saber como pensar, e não mais o que pensar"</strong> — o profissional do futuro é um <em>longlife learner</em>, alguém que constrói múltiplas carreiras ao longo da vida em vez de uma trajetória linear única.</p>
-<div class="callout callout-dica">
-<span class="callout-icon">💡</span>
-<div class="callout-body">
-<span class="callout-label">Onde este curso entra</span>
-<p>O segundo bloco — letramento tecnológico — é o mais prático de construir a partir de hoje. Este workshop existe para te dar exatamente isso: fluência real em trabalhar ao lado da IA, não apenas ouvir falar sobre ela.</p>
-</div>
-</div>
-
-<h3>O que os dados já mostram: a aceleração não é promessa, é presente</h3>
-<p>Diferente de 2018, hoje já existem dados concretos de produtividade — não projeções. Alguns números recentes:</p>
-<div class="stats-grid">
-<div class="stat-card">
-<div class="stat-number">+25%</div>
-<div class="stat-label">mais rápido na conclusão de tarefas por profissionais usando IA generativa, com +40% de qualidade</div>
-<span class="stat-source">Harvard Business School + BCG, estudo de campo com 758 consultores</span>
-</div>
-<div class="stat-card">
-<div class="stat-number">12x</div>
-<div class="stat-label">mais rápido: velocidade média em tarefas de nível universitário usando Claude como parceiro de raciocínio</div>
-<span class="stat-source">Anthropic Economic Index</span>
-</div>
-<div class="stat-card">
-<div class="stat-number">78%</div>
-<div class="stat-label">das empresas já usam IA em pelo menos uma área do negócio (eram 72% um ano antes)</div>
-<span class="stat-source">McKinsey, State of AI 2025</span>
-</div>
-<div class="stat-card">
-<div class="stat-number">4x</div>
-<div class="stat-label">crescimento de produtividade em setores mais expostos à IA, na comparação com setores menos expostos</div>
-<span class="stat-source">PwC, Global AI Jobs Barometer 2025</span>
-</div>
-</div>
-<p>Um dado adicional que reforça o argumento de carreira da própria Michelle Schneider: segundo a Gupy, a busca de empresas brasileiras por profissionais com conhecimento em IA cresceu <strong>306%</strong>, e cargos expostos à IA pagam em média <strong>56% a mais</strong> do que cargos equivalentes sem essa exposição.</p>
-<div class="callout callout-atencao">
-<span class="callout-icon">⚠️</span>
-<div class="callout-body">
-<span class="callout-label">Atenção</span>
-<p>Nem toda empresa que adota IA já colhe resultado: um estudo do NBER mostra que a maior parte ainda não viu ganho real de produtividade. A diferença entre "ter acesso à ferramenta" e "saber usá-la bem" é exatamente o que este curso resolve.</p>
-</div>
-</div>
-
-<h3>O que é o Claude, em termos simples</h3>
-<p>O Claude é um assistente de inteligência artificial com quem você conversa em linguagem natural — como se estivesse escrevendo para uma pessoa muito bem informada, disposta a ajudar, mas que não tem memória perfeita do que "deveria saber" sobre você a menos que você conte. Ele não pensa como um ser humano, não tem vontades próprias e não "sabe" fatos com 100% de certeza o tempo todo — por isso, saber usá-lo bem inclui saber quando confiar e quando checar (voltaremos a isso no Módulo 9).</p>
-
-<h3>Usar de qualquer jeito vs. usar de forma estratégica</h3>
-<table>
-<tr><th>Uso "de qualquer jeito"</th><th>Uso estratégico</th></tr>
-<tr><td>Pergunta curta, sem contexto, e aceita a primeira resposta</td><td>Dá contexto, pede o formato certo e itera até chegar no resultado</td></tr>
-<tr><td>Repete a mesma explicação toda conversa</td><td>Mantém um <code>.md</code> ou Project com contexto salvo</td></tr>
-<tr><td>Usa sempre o mesmo espaço para tudo</td><td>Escolhe Chat, Project, Cowork ou Claude Code conforme a tarefa</td></tr>
-<tr><td>Aceita a resposta sem checar nada</td><td>Sabe quando validar e pede fontes ou autoavaliação crítica</td></tr>
-</table>
-<p>O objetivo deste workshop é sair da coluna da esquerda e entrar na coluna da direita — no seu próprio ritmo, sem precisar virar um especialista técnico.</p>
-
-<h3>Boas práticas gerais de uso</h3>
-<ul>
-<li><strong>Ética:</strong> use o Claude para acelerar seu trabalho, não para se passar por outra pessoa ou enganar alguém.</li>
-<li><strong>Privacidade:</strong> evite colar dados sensíveis (senhas, números de documento, dados bancários) em qualquer prompt — vamos aprofundar isso no Módulo 10.</li>
-<li><strong>Senso crítico:</strong> trate respostas do Claude como um primeiro rascunho muito bom, não como verdade absoluta — especialmente em temas de saúde, direito e finanças.</li>
-</ul>
-
-<h3>Pensar junto com a IA</h3>
-<p>Uma mudança de mentalidade importante: em vez de tratar o Claude como um "oráculo" que só dá respostas prontas, trate-o como um parceiro de raciocínio.</p>
-<ul>
-<li><strong>Peça para o Claude fazer perguntas antes de responder</strong>, quando o pedido for complexo ou ambíguo;</li>
-<li><strong>Peça raciocínio passo a passo</strong>, para entender o "porquê" da resposta, não só o resultado final;</li>
-<li><strong>Use o Claude para brainstorm</strong>, pedindo várias alternativas antes de decidir qual seguir.</li>
-</ul>
-<p><strong>Exemplo de prompt que pede perguntas antes de responder:</strong></p>
-<pre><code>Quero montar um plano de estudos para aprender espanhol básico em 3 meses,
-dedicando cerca de 30 minutos por dia.
-Antes de montar o plano, me faça as perguntas que você precisar para
-personalizar isso para a minha rotina.</code></pre>
-
-<h3>Primeiro contato com Artifacts</h3>
-<p>Artifacts é o recurso que faz o Claude gerar, ao lado da conversa, um documento, uma pequena planilha, um trecho de código ou até um mini-aplicativo — algo que você pode ver, editar e reaproveitar, em vez de só ler um texto corrido no chat. Para quem está começando, é a forma mais rápida de sentir o valor prático do Claude.</p>
-<p><strong>Exemplo de prompt para gerar um primeiro Artifact:</strong></p>
-<pre><code>Crie uma lista de verificação (checklist) para eu organizar uma mudança de casa,
-dividida em: 2 meses antes, 1 mês antes, 1 semana antes e no dia da mudança.
-Apresente como um documento organizado que eu possa editar depois.</code></pre>
-
-<h3>Exercícios práticos</h3>
-<ol>
-<li>Peça ao Claude para gerar um Artifact simples e útil para sua rotina (ex.: uma checklist, um roteiro de estudos, uma tabela de orçamento pessoal).</li>
-<li>Refaça o mesmo pedido, mas primeiro peça para o Claude te fazer perguntas antes de responder. Compare os dois resultados.</li>
-</ol>
-<p><strong>Dicas e armadilhas comuns:</strong> não desanime se a primeira resposta não vier exatamente como você queria — isso é normal e esperado. O ajuste fino por meio de iteração (pedir para refazer, detalhar ou mudar o formato) é parte do processo, não um sinal de que "fez algo errado". Vamos aprofundar isso no Módulo 3.</p>
 </section>
 
 <section id="modulo-2">
@@ -1525,6 +1575,13 @@ Para a maioria das tarefas pessoais e profissionais do cotidiano, o modelo inter
 <p>Guia Completo de Claude para Iniciantes — material-base de workshop. Revise periodicamente nomes de modelos, espaços e recursos citados aqui, pois a Anthropic atualiza esses itens com frequência.</p>
 </footer>
 
+<a id="claudeHelp" href="https://claude.ai/new" target="_blank" rel="noopener" aria-label="Precisa de ajuda? Converse com o Claude">
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path d="M12 2 L14 9 L21 9 L15.5 13.5 L17.5 21 L12 16.5 L6.5 21 L8.5 13.5 L3 9 L10 9 Z" fill="currentColor"/>
+</svg>
+</a>
+<span id="claudeHelp-tooltip">Ficou com dúvida? Fale com o Claude</span>
+
 <script>
 (function(){
   var nav = document.getElementById('indice');
@@ -1564,6 +1621,12 @@ Para a maioria das tarefas pessoais e profissionais do cotidiano, o modelo inter
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+
+  var helpBtn = document.getElementById('claudeHelp');
+  if(helpBtn){
+    var helpPrompt = 'Estou fazendo o curso "Guia Completo de Claude para Iniciantes" e preciso de ajuda. Aja como um assistente de suporte especializado em ajudar iniciantes a resolver dúvidas e problemas práticos ao usar o Claude (Chat, Project, Cowork, Claude Code, prompts, Skills, conectores, etc). Explique de forma simples e didática. Minha dúvida é a seguinte: ';
+    helpBtn.href = 'https://claude.ai/new?q=' + encodeURIComponent(helpPrompt);
+  }
 })();
 </script>
 </body>
