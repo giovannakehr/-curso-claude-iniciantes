@@ -4,8 +4,290 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guia Completo de Claude para Iniciantes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0A0A0A;
+  --charcoal:#1A1A1A;
+  --gray-dark:#333333;
+  --gray-mid:#8A8A8A;
+  --gray-light:#BFBFBF;
+  --off-white:#E6E6E6;
+  --paper:#FAFAFA;
+  --white:#FFFFFF;
+  --sidebar-w:300px;
+  --font-head:'Montserrat',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--gray-dark);
+  background:var(--white);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- Sidebar / índice ---------- */
+#navToggle{
+  display:none;
+  position:fixed;
+  top:16px;
+  left:16px;
+  z-index:1001;
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:8px;
+  background:var(--black);
+  color:var(--off-white);
+  font-size:20px;
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+}
+#navOverlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(10,10,10,.5);
+  z-index:998;
+}
+#indice{
+  position:fixed;
+  top:0;
+  left:0;
+  width:var(--sidebar-w);
+  height:100vh;
+  overflow-y:auto;
+  background:var(--black);
+  color:var(--gray-light);
+  padding:36px 28px 60px;
+  z-index:999;
+  border-right:1px solid var(--charcoal);
+}
+#indice::-webkit-scrollbar{width:8px;}
+#indice::-webkit-scrollbar-thumb{background:var(--gray-dark);border-radius:4px;}
+#indice h2{
+  font-family:var(--font-head);
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gray-mid);
+  margin:0 0 22px;
+  font-weight:700;
+}
+#indice ol{
+  list-style:none;
+  margin:0;
+  padding:0;
+  counter-reset:mod;
+}
+#indice > ol > li{
+  margin-bottom:4px;
+}
+#indice > ol > li > a{
+  display:block;
+  font-family:var(--font-head);
+  font-weight:600;
+  font-size:13.5px;
+  color:var(--off-white);
+  text-decoration:none;
+  padding:9px 10px;
+  border-radius:6px;
+  border-left:2px solid transparent;
+  transition:background .15s ease, border-color .15s ease, color .15s ease;
+}
+#indice > ol > li > a:hover,
+#indice > ol > li > a.active{
+  background:var(--charcoal);
+  border-left-color:var(--off-white);
+  color:var(--white);
+}
+#indice ol ol{
+  margin:2px 0 10px 10px;
+  padding-left:12px;
+  border-left:1px solid var(--charcoal);
+}
+#indice ol ol li a{
+  display:block;
+  font-size:12.5px;
+  color:var(--gray-mid);
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:5px;
+  transition:background .15s ease, color .15s ease;
+}
+#indice ol ol li a:hover,
+#indice ol ol li a.active{
+  background:var(--charcoal);
+  color:var(--white);
+}
+
+/* ---------- Layout geral ---------- */
+header{
+  margin-left:var(--sidebar-w);
+  background:var(--black);
+  color:var(--white);
+  padding:64px 64px 52px;
+}
+header h1{
+  font-family:var(--font-head);
+  font-weight:800;
+  font-size:clamp(28px,3.4vw,42px);
+  letter-spacing:-.01em;
+  margin:0 0 14px;
+}
+header p{
+  font-family:var(--font-body);
+  color:var(--gray-light);
+  font-size:17px;
+  margin:0;
+  max-width:640px;
+}
+
+main{
+  margin-left:var(--sidebar-w);
+  max-width:880px;
+  padding:56px 64px 40px;
+}
+
+footer{
+  margin-left:var(--sidebar-w);
+  padding:32px 64px 56px;
+  border-top:1px solid var(--off-white);
+}
+footer p{
+  color:var(--gray-mid);
+  font-size:13px;
+  max-width:760px;
+  margin:0;
+}
+
+/* ---------- Seções e tipografia de conteúdo ---------- */
+section{
+  padding-top:56px;
+  margin-top:-56px;
+  scroll-margin-top:24px;
+}
+section + section{
+  border-top:1px solid var(--off-white);
+  padding-top:56px;
+  margin-top:0;
+}
+h2{
+  font-family:var(--font-head);
+  font-weight:700;
+  font-size:26px;
+  color:var(--black);
+  letter-spacing:-.01em;
+  margin:0 0 8px;
+}
+h3{
+  font-family:var(--font-head);
+  font-weight:600;
+  font-size:18px;
+  color:var(--black);
+  margin:36px 0 14px;
+}
+main > section > p em{
+  color:var(--gray-mid);
+  font-style:normal;
+  font-size:13.5px;
+  letter-spacing:.02em;
+}
+p{margin:0 0 16px;font-size:15.5px;}
+strong{color:var(--black);font-weight:600;}
+ul,ol{padding-left:22px;margin:0 0 16px;}
+li{margin-bottom:6px;font-size:15.5px;}
+
+/* ---------- Tabelas ---------- */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:20px 0 28px;
+  font-size:14px;
+}
+th{
+  background:var(--black);
+  color:var(--off-white);
+  font-family:var(--font-head);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  text-align:left;
+  padding:12px 14px;
+}
+td{
+  padding:12px 14px;
+  border-bottom:1px solid var(--off-white);
+  vertical-align:top;
+}
+tr:nth-child(even) td{background:var(--paper);}
+
+/* ---------- Código ---------- */
+pre{
+  background:var(--black);
+  color:var(--off-white);
+  padding:18px 20px;
+  border-radius:10px;
+  overflow-x:auto;
+  margin:16px 0 24px;
+  font-size:13.5px;
+  line-height:1.6;
+}
+pre code{
+  font-family:'SFMono-Regular',Menlo,Consolas,monospace;
+  background:none;
+  padding:0;
+  color:inherit;
+}
+p code, li code{
+  font-family:'SFMono-Regular',Menlo,Consolas,monospace;
+  background:var(--paper);
+  border:1px solid var(--off-white);
+  color:var(--gray-dark);
+  padding:2px 6px;
+  border-radius:4px;
+  font-size:13px;
+}
+
+/* ---------- Destaques ---------- */
+blockquote.destaque{
+  background:var(--paper);
+  border-left:4px solid var(--black);
+  margin:20px 0 28px;
+  padding:16px 20px;
+  font-size:14.5px;
+  color:var(--gray-dark);
+  border-radius:0 8px 8px 0;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:960px){
+  :root{--sidebar-w:0px;}
+  #navToggle{display:flex;}
+  #indice{
+    transform:translateX(-100%);
+    transition:transform .25s ease;
+    width:280px;
+    box-shadow:2px 0 24px rgba(0,0,0,.3);
+  }
+  #indice.open{transform:translateX(0);}
+  #navOverlay.open{display:block;}
+  header,main,footer{padding-left:28px;padding-right:28px;}
+  header{padding-top:80px;}
+}
+</style>
 </head>
 <body>
+<button id="navToggle" aria-label="Abrir índice">☰</button>
+<div id="navOverlay"></div>
 
 <!--
 NOTA PARA O INSTRUTOR (visão geral do material):
@@ -1055,5 +1337,46 @@ Para a maioria das tarefas pessoais e profissionais do cotidiano, o modelo inter
 <p>Guia Completo de Claude para Iniciantes — material-base de workshop. Revise periodicamente nomes de modelos, espaços e recursos citados aqui, pois a Anthropic atualiza esses itens com frequência.</p>
 </footer>
 
+<script>
+(function(){
+  var nav = document.getElementById('indice');
+  var toggle = document.getElementById('navToggle');
+  var overlay = document.getElementById('navOverlay');
+
+  function closeNav(){
+    nav.classList.remove('open');
+    overlay.classList.remove('open');
+  }
+  toggle.addEventListener('click', function(){
+    nav.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+  overlay.addEventListener('click', closeNav);
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeNav);
+  });
+
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+  var sections = links
+    .map(function(a){ return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+
+  function onScroll(){
+    var pos = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(sec){
+      if(sec.offsetTop <= pos){ current = sec; }
+    });
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(current){
+      var id = '#' + current.id;
+      var active = links.filter(function(a){ return a.getAttribute('href') === id; });
+      active.forEach(function(a){ a.classList.add('active'); });
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
 </body>
 </html>
