@@ -9,17 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --black:#B35A3A;
-  --charcoal:#963F22;
-  --gray-dark:#5C3A28;
-  --gray-mid:#A47C63;
-  --gray-light:#F0DCC9;
-  --off-white:#FBEEE3;
-  --paper:#FFFAF5;
+  --black:#5B3CC4;
+  --charcoal:#4A2FA3;
+  --gray-dark:#1F2430;
+  --gray-mid:#6B7280;
+  --gray-light:#E6E9EE;
+  --off-white:#E6E9EE;
+  --paper:#EEF0FB;
   --white:#FFFFFF;
-  --accent:#7C3AED;
-  --accent-dark:#5B21B6;
-  --claude-orange:#D97757;
+  --accent:#FF7A3D;
+  --accent-dark:#E05F22;
+  --radius:12px;
+  --shadow:0 6px 20px rgba(31,36,48,0.08);
   --sidebar-w:300px;
   --font-head:'Montserrat',sans-serif;
   --font-body:'Inter',sans-serif;
@@ -294,7 +295,7 @@ blockquote.destaque{
   align-items:flex-start;
   margin:20px 0 28px;
   padding:16px 20px;
-  border-radius:0 10px 10px 0;
+  border-radius:0 var(--radius) var(--radius) 0;
   font-size:14.5px;
   color:var(--gray-dark);
 }
@@ -326,9 +327,11 @@ blockquote.destaque{
   margin:24px 0 32px;
 }
 .stat-card{
-  background:var(--black);
-  color:var(--white);
-  border-radius:12px;
+  background:var(--white);
+  color:var(--gray-dark);
+  border:1px solid var(--gray-light);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
   padding:26px 22px;
 }
 .stat-number{
@@ -338,11 +341,11 @@ blockquote.destaque{
   line-height:1;
   margin-bottom:10px;
   letter-spacing:-.01em;
-  color:var(--accent);
+  color:var(--black);
 }
 .stat-label{
   font-size:13px;
-  color:var(--gray-light);
+  color:var(--gray-dark);
   line-height:1.45;
   margin-bottom:10px;
 }
@@ -379,20 +382,20 @@ blockquote.destaque{
   width:60px;
   height:60px;
   border-radius:18px;
-  background:var(--claude-orange);
+  background:var(--accent);
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 8px 24px rgba(0,0,0,.28);
+  box-shadow:0 8px 24px rgba(31,36,48,.28);
   text-decoration:none;
   z-index:999;
   transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 #claudeHelp:hover{
   transform:translateY(-3px);
-  box-shadow:0 12px 28px rgba(0,0,0,.32);
-  background:var(--charcoal);
+  box-shadow:0 12px 28px rgba(31,36,48,.32);
+  background:var(--accent-dark);
 }
 #claudeHelp svg{width:28px;height:28px;}
 #claudeHelp-tooltip{
